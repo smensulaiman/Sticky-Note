@@ -23,7 +23,6 @@ public class NewNoteActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setupToolbar();
-
     }
 
     private void setupToolbar() {
