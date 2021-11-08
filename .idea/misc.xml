@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_main.xml" value="0.175" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/appbar_background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_main.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_home.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_notes.xml" value="0.25" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_to_do.xml" value="0.2359375" />

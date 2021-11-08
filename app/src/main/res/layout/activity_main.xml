@@ -8,27 +8,60 @@
     android:background="@color/color_background"
     tools:context=".view.MainActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="?attr/actionBarSize">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/toolbarContainer"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Sticky Notes"
-            android:background="@color/color_white"/>
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white"
+                app:title="Sticky Notes" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/txtWish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/color_black_light"
+            android:fontFamily="@font/philosopher_bold"
+            android:text="Good Morning"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarContainer" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Mr. Solaiman"
+            android:textColor="@color/color_black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/txtWish"
+            app:layout_constraintTop_toBottomOf="@+id/txtWish" />
 
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/toolbar"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
             tools:itemCount="2"
             tools:listitem="@layout/note_item" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -47,6 +80,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/imgHome"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_widgets"
@@ -56,6 +90,7 @@
                 android:background="@drawable/green_ripple" />
 
             <ImageView
+                android:id="@+id/imgPersonal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_person"

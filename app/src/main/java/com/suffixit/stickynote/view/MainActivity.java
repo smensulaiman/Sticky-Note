@@ -2,16 +2,37 @@ package com.suffixit.stickynote.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
+import com.suffixit.stickynote.utils.MenuItem;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements StickyBottomBarViewItemChangeListener {
+
+    @BindView(R.id.imgHome)
+    ImageView imgHome;
+
+    @BindView(R.id.imgPersonal)
+    ImageView imgPersonal;
+
+
+    @OnClick(R.id.imgHome)
+    public void changeFragmentToHome() {
+        onItemSelected(MenuItem.ITEM_HOME);
+    }
+
+    @OnClick(R.id.imgPersonal)
+    public void changeFragmentToPerson() {
+        onItemSelected(MenuItem.ITEM_PERSONAL);
+    }
 
     @OnClick(R.id.fab)
     public void createNote() {
@@ -25,13 +46,35 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    public void changeFragment(Fragment fragment){
+    @Override
+    protected void onStart() {
+        super.onStart();
+        changeFragmentToHome();
+    }
+
+    public void changeFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        changeFragment(new HomeFragment());
+    public void onItemSelected(MenuItem menuItem) {
+        switch (menuItem) {
+            case ITEM_HOME: {
+                changeFragment(new HomeFragment());
+                imgHome.setColorFilter(getColor(R.color.color_green));
+                imgPersonal.setColorFilter(getColor(R.color.color_black));
+                break;
+            }
+            case ITEM_PERSONAL: {
+                imgPersonal.setColorFilter(getColor(R.color.color_green));
+                imgHome.setColorFilter(getColor(R.color.color_black));
+                break;
+            }
+            default: {
+                imgHome.setColorFilter(getColor(R.color.color_black));
+                imgPersonal.setColorFilter(getColor(R.color.color_black));
+                break;
+            }
+        }
     }
 }
