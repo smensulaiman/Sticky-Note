@@ -1,9 +1,13 @@
-package com.suffixit.stickynote;
+package com.suffixit.stickynote.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.suffixit.stickynote.model.Note;
+import com.suffixit.stickynote.database.NoteDatabase;
+import com.suffixit.stickynote.repository.NoteDao;
 
 import java.util.List;
 

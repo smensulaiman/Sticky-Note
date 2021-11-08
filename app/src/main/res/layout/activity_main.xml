@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/color_background"
+    tools:context=".view.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +17,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Sticky Notes" />
+            app:title="Sticky Notes"
+            android:background="@color/color_white"/>
 
         <FrameLayout
             android:id="@+id/fragmentContainer"

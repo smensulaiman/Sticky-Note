@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StickyNote">
         <activity
-            android:name=".NewNoteActivity"
+            android:name=".view.NewNoteActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

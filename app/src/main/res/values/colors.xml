@@ -17,4 +17,6 @@
     <color name="color_purple_light">#bdb2ff</color>
     <color name="color_pink_light">#ffc6ff</color>
 
+    <color name="color_background">#F0F4F7</color>
+
 </resources>

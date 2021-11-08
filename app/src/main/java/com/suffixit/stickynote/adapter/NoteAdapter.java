@@ -1,4 +1,4 @@
-package com.suffixit.stickynote;
+package com.suffixit.stickynote.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textview.MaterialTextView;
+import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.model.Note;
 
 import java.util.List;
 

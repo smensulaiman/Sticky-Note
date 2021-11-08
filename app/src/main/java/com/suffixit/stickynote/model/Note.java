@@ -1,4 +1,4 @@
-package com.suffixit.stickynote;
+package com.suffixit.stickynote.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

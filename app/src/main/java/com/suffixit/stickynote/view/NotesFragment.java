@@ -1,9 +1,6 @@
-package com.suffixit.stickynote;
+package com.suffixit.stickynote.view;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,12 +9,21 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.adapter.NoteAdapter;
+import com.suffixit.stickynote.viewmodel.NoteViewModel;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeFragment extends Fragment {
+
+public class NotesFragment extends Fragment {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -28,8 +34,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_notes, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 

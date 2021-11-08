@@ -1,4 +1,4 @@
-package com.suffixit.stickynote;
+package com.suffixit.stickynote.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.suffixit.stickynote.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
