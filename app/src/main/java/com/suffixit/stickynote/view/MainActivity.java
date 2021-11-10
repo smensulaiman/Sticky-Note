@@ -1,12 +1,14 @@
 package com.suffixit.stickynote.view;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
 import com.suffixit.stickynote.utils.MenuItem;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
     @BindView(R.id.imgPersonal)
     ImageView imgPersonal;
+
+    @BindView(R.id.imageView)
+    SimpleDraweeView imageView;
 
 
     @OnClick(R.id.imgHome)
@@ -44,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Uri uri = Uri.parse("https://avatars.githubusercontent.com/u/49442391?v=4");
+        imageView.setImageURI(uri);
     }
 
     @Override

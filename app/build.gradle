@@ -52,4 +52,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
+    //Fresco
+    implementation 'com.facebook.fresco:fresco:2.6.0'
+
+    //Animation
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
 }

@@ -3,6 +3,8 @@ package com.suffixit.stickynote.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity(tableName = "note_table")
 public class Note {
 
@@ -10,12 +12,16 @@ public class Note {
     private int id;
     private String title;
     private String description;
-    private int priority;
+    private int noteCategoryId;
+    private int noteBackgroundColor;
+    private long noteCreatedAt;
 
-    public Note(String title, String description, int priority) {
+    public Note(String title, String description, int noteCategoryId, int noteBackgroundColor, long noteCreatedAt) {
         this.title = title;
         this.description = description;
-        this.priority = priority;
+        this.noteCategoryId = noteCategoryId;
+        this.noteBackgroundColor = noteBackgroundColor;
+        this.noteCreatedAt = noteCreatedAt;
     }
 
     public int getId() {
@@ -42,12 +48,28 @@ public class Note {
         this.description = description;
     }
 
-    public int getPriority() {
-        return priority;
+    public int getNoteCategoryId() {
+        return noteCategoryId;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
+    public void setNoteCategoryId(int noteCategoryId) {
+        this.noteCategoryId = noteCategoryId;
+    }
+
+    public int getNoteBackgroundColor() {
+        return noteBackgroundColor;
+    }
+
+    public void setNoteBackgroundColor(int noteBackgroundColor) {
+        this.noteBackgroundColor = noteBackgroundColor;
+    }
+
+    public long getNoteCreatedAt() {
+        return noteCreatedAt;
+    }
+
+    public void setNoteCreatedAt(long noteCreatedAt) {
+        this.noteCreatedAt = noteCreatedAt;
     }
 
     @Override
@@ -56,7 +78,9 @@ public class Note {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", priority=" + priority +
+                ", noteCategoryId=" + noteCategoryId +
+                ", noteBackgroundColor=" + noteBackgroundColor +
+                ", noteCreatedAt=" + noteCreatedAt +
                 '}';
     }
 }

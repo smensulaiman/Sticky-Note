@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/appbar_background.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_main.xml" value="0.24615384615384617" />
-        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_home.xml" value="0.24615384615384617" />
-        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_notes.xml" value="0.25" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/round_background.xml" value="0.199609375" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_main.xml" value="0.18532818532818532" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_new_note.xml" value="0.18532818532818532" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/dropdown_category.xml" value="0.18532818532818532" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_home.xml" value="0.18532818532818532" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_notes.xml" value="0.18532818532818532" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_to_do.xml" value="0.2359375" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/note_item.xml" value="0.18532818532818532" />
         <entry key="app/src/main/res/drawable/green_ripple.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2671794871794872" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1712962962962963" />

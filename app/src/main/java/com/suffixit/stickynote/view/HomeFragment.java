@@ -8,17 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.suffixit.stickynote.adapter.NoteAdapter;
+import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.NoteViewPagerAdapter;
 import com.suffixit.stickynote.model.NoteViewPagerModel;
-import com.suffixit.stickynote.viewmodel.NoteViewModel;
-import com.suffixit.stickynote.R;
 
 import java.util.ArrayList;
 import java.util.List;

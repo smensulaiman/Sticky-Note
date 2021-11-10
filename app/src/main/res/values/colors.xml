@@ -10,6 +10,7 @@
     <color name="color_red_dark">#e63946</color>
     <color name="color_red_light">#ffadad</color>
     <color name="color_sky_light">#9bf6ff</color>
+    <color name="color_yellow">#FFD53B</color>
     <color name="color_red_yellow">#ffd6a5</color>
     <color name="color_pink_light">#ffc6ff</color>
     <color name="color_blue_light">#a0c4ff</color>
@@ -18,5 +19,6 @@
     <color name="color_yellow_light">#fdffb6</color>
     <color name="color_green_dark">#EB40915E</color>
     <color name="color_purple_light">#bdb2ff</color>
+    <color name="color_transparent">#45FFFFFF</color>
 
 </resources>
