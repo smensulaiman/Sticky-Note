@@ -45,7 +45,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.container.setBackgroundResource(note.getNoteBackgroundColor());
         holder.txtNoteTitle.setText(note.getTitle());
         holder.txtNoteDescription.setText(note.getDescription());
-        holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date()));
+        holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
 
         YoYo.with(Techniques.BounceIn)
                 .duration(700)
