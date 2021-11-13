@@ -1,6 +1,9 @@
 package com.suffixit.stickynote.view;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,10 +12,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.NoteAdapter;
@@ -48,6 +47,10 @@ public class NotesFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         noteAdapter = new NoteAdapter(getContext(), new ArrayList<>());
+        noteAdapter.setNoteAdapterInterface(note -> {
+            noteViewModel.deleteNote(note);
+            noteAdapter.notifyDataSetChanged();
+        });
         recyclerView.setAdapter(noteAdapter);
 
         noteViewModel = ViewModelProviders.of(requireActivity()).get(NoteViewModel.class);
