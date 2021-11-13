@@ -1,6 +1,7 @@
 package com.suffixit.stickynote.utils;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,33 +11,41 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.CategoryModel;
 
-import java.util.Locale;
-
 import yuku.ambilwarna.AmbilWarnaDialog;
 
 
 public class CategoryDialogFragment extends DialogFragment {
-    private int mDefaultColor ;
+
+    private int mDefaultColor;
     private int icon;
     private String hexColor;
+
+    private DialogListener dialogListener;
+
+    public interface DialogListener {
+        void onFinishEditDialog(CategoryModel categoryModel);
+    }
+
+    public void setDialogListener(DialogListener dialogListener) {
+        this.dialogListener = dialogListener;
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
         return super.onCreateDialog(savedInstanceState);
-
     }
 
     @Nullable
@@ -49,7 +58,6 @@ public class CategoryDialogFragment extends DialogFragment {
 
         }
         return inflater.inflate(R.layout.layout_sample_dialog, container, false);
-
     }
 
     @Override
@@ -61,83 +69,19 @@ public class CategoryDialogFragment extends DialogFragment {
         final TextInputEditText etTitle = view.findViewById(R.id.etTitle);
         final Button btChooseColor = view.findViewById(R.id.btnColorPicker);
         final RadioGroup radioGroupIcon = view.findViewById(R.id.radioGroupIcon);
-        final RadioButton radioButtonDate = view.findViewById(R.id.radioBtnDate);
-        final RadioButton radioBtnFire = view.findViewById(R.id.radioBtnFire);
-        final RadioButton radioBtnNote = view.findViewById(R.id.radioBtnNote);
-        final RadioButton radioBtnCloud = view.findViewById(R.id.radioBtnCloud);
-        final RadioButton radioBtnKey = view.findViewById(R.id.radioBtnKey);
-        final RadioButton radioBtnTrending = view.findViewById(R.id.radioBtnTrending);
         final View colorPreview = view.findViewById(R.id.preview_selected_color);
         Button btnDone = view.findViewById(R.id.btnDone);
 
+        radioGroupIcon.setOnCheckedChangeListener((group, checkedId) -> icon = R.drawable.ic_add);
 
-        radioGroupIcon.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.radioBtnDate:
-                    icon = 1;
-                    break;
-                case R.id.radioBtnFire:
-                    icon = 2;
-                    break;
-                case R.id.radioBtnCloud:
-                    icon = 3;
-                    break;
+        btChooseColor.setOnClickListener(v -> openColorPicker(colorPreview));
 
-                case R.id.radioBtnNote:
-                    icon = 4;
-                    break;
-                case R.id.radioBtnKey:
-                    icon = 5;
-                    break;
-                case R.id.radioBtnTrending:
-                    icon = 6;
-                    break;
-
-            }
-        });
-
-        btChooseColor.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(final View v) {
-                        openColorPicker(colorPreview);
-                    }
-                });
-
-        btnDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CategoryModel categoryModel = new CategoryModel(0,etTitle.getText().toString(),icon,hexColor);
-                DialogListener dialogListener = (DialogListener) getActivity();
-                dialogListener.onFinishEditDialog(categoryModel);
-                dismiss();
-            }
+        btnDone.setOnClickListener(view1 -> {
+            CategoryModel categoryModel = new CategoryModel(etTitle.getText().toString(), icon, hexColor);
+            dialogListener.onFinishEditDialog(categoryModel);
+            dismiss();
         });
     }
-
-    public void openColorPicker(View colorPreview) {
-        AmbilWarnaDialog colorPicker = new AmbilWarnaDialog(getContext(), mDefaultColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
-            @Override
-            public void onCancel(AmbilWarnaDialog dialog) {
-
-            }
-
-            @Override
-            public void onOk(AmbilWarnaDialog dialog, int color) {
-                mDefaultColor = color;
-                colorPreview.setBackgroundColor(mDefaultColor);
-                hexColor = String.format("#%06X", (0xFFFFFF & mDefaultColor));
-
-            }
-        });
-        colorPicker.show();
-    }
-
-
-    public interface DialogListener {
-        void onFinishEditDialog(CategoryModel categoryModel);
-    }
-
 
     @Override
     public void onResume() {
@@ -146,5 +90,24 @@ public class CategoryDialogFragment extends DialogFragment {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(lp);
+    }
+
+    public void openColorPicker(View colorPreview) {
+        AmbilWarnaDialog colorPicker = new AmbilWarnaDialog(getContext(),
+                mDefaultColor,
+                new AmbilWarnaDialog.OnAmbilWarnaListener() {
+                    @Override
+                    public void onCancel(AmbilWarnaDialog dialog) {
+                        dialog.getDialog().dismiss();
+                    }
+
+                    @Override
+                    public void onOk(AmbilWarnaDialog dialog, int color) {
+                        mDefaultColor = color;
+                        colorPreview.setBackgroundColor(mDefaultColor);
+                        hexColor = String.format("#%06X", (0xFFFFFF & mDefaultColor));
+                    }
+                });
+        colorPicker.show();
     }
 }

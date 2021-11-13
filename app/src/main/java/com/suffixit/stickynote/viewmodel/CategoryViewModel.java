@@ -7,9 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.suffixit.stickynote.model.CategoryModel;
-import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.repository.CategoryRepository;
-import com.suffixit.stickynote.repository.NoteRepository;
 
 import java.util.List;
 

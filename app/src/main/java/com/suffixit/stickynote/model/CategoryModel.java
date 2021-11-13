@@ -13,8 +13,7 @@ public class CategoryModel {
     private int icon;
     private String color;
 
-    public CategoryModel(int categoryId, String categoryTitle, int icon, String color) {
-        this.categoryId = categoryId;
+    public CategoryModel(String categoryTitle, int icon, String color) {
         this.categoryTitle = categoryTitle;
         this.icon = icon;
         this.color = color;
@@ -50,5 +49,15 @@ public class CategoryModel {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoryModel{" +
+                "categoryId=" + categoryId +
+                ", categoryTitle='" + categoryTitle + '\'' +
+                ", icon=" + icon +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
