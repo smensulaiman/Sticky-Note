@@ -3,6 +3,8 @@
 
     <color name="color_white">#fffffc</color>
     <color name="color_black">#212529</color>
+    <color name="white">#fffffc</color>
+    <color name="black">#212529</color>
     <color name="color_black_light">#C4212529</color>
     <color name="color_accent">#FF03DAC5</color>
 

@@ -53,5 +53,14 @@ dependencies {
     //Room Database
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+    
+    //Fresco
+    implementation 'com.facebook.fresco:fresco:2.6.0'
+
+    //Animation
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
+    //Color Picker
+    implementation 'com.github.yukuku:ambilwarna:2.0.1'
 
 }

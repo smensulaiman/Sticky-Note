@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
                 break;
             }
             case ITEM_PERSONAL: {
+                changeFragment(new PersonalFragment());
                 imgPersonal.setColorFilter(getColor(R.color.color_green));
                 imgHome.setColorFilter(getColor(R.color.color_black));
                 break;
