@@ -4,13 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.Note;
@@ -26,10 +30,15 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     private Context context;
     private List<Note> notes;
+    private NoteAdapterInterface noteAdapterInterface;
 
     public NoteAdapter(Context context, List<Note> notes) {
         this.context = context;
         this.notes = notes;
+    }
+
+    public void setNoteAdapterInterface(NoteAdapterInterface noteAdapterInterface) {
+        this.noteAdapterInterface = noteAdapterInterface;
     }
 
     @NonNull
@@ -46,6 +55,41 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.txtNoteTitle.setText(note.getTitle());
         holder.txtNoteDescription.setText(note.getDescription());
         holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
+
+        holder.itemView.setOnLongClickListener(v -> {
+            if (holder.layoutDelete.getVisibility() != View.VISIBLE) {
+                holder.layoutDelete.setVisibility(View.VISIBLE);
+
+                YoYo.with(Techniques.BounceIn)
+                        .duration(500)
+                        .repeat(0)
+                        .playOn(holder.btnDelete);
+
+                YoYo.with(Techniques.BounceIn)
+                        .duration(500)
+                        .repeat(0)
+                        .playOn(holder.btnCancel);
+            }
+            return false;
+        });
+
+        holder.btnCancel.setOnClickListener(v -> holder.layoutDelete.setVisibility(View.GONE));
+        holder.btnDelete.setOnClickListener(v ->
+                {
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context).setTitle("Alert!!!")
+                            .setMessage("Are you sure want to delete?")
+                            .setPositiveButton("YES", (dialog, which) -> {
+                                holder.layoutDelete.setVisibility(View.GONE);
+                                if (noteAdapterInterface != null) {
+                                    noteAdapterInterface.onItemDelete(note);
+                                }
+                            })
+                            .setNegativeButton("NO", (dialog, which) -> dialog.dismiss());
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+        );
 
         YoYo.with(Techniques.BounceIn)
                 .duration(700)
@@ -68,11 +112,20 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         @BindView(R.id.container)
         ConstraintLayout container;
 
+        @BindView(R.id.layoutDelete)
+        RelativeLayout layoutDelete;
+
         @BindView(R.id.txtNoteTitle)
         MaterialTextView txtNoteTitle;
 
         @BindView(R.id.txtNoteDescription)
         MaterialTextView txtNoteDescription;
+
+        @BindView(R.id.btnDelete)
+        MaterialButton btnDelete;
+
+        @BindView(R.id.btnCancel)
+        MaterialButton btnCancel;
 
         @BindView(R.id.dateTime)
         MaterialTextView dateTime;
