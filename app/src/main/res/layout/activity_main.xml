@@ -27,14 +27,24 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <TextView
+            android:id="@+id/txtDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12/12/12"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:paddingVertical="2dp"
+            android:background="@color/color_green_transparent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarContainer"/>
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarContainer"
+            app:layout_constraintTop_toBottomOf="@+id/txtDateTime"
             app:placeholderImage="@drawable/placeholder"
             app:roundAsCircle="true"
             app:roundingBorderColor="@color/color_green"
@@ -48,7 +58,7 @@
             android:fontFamily="@font/philosopher_bold"
             android:text="Good Morning"
             android:textColor="@color/color_black_light"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/txtName"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -61,7 +71,7 @@
             android:fontFamily="@font/philosopher_bold"
             android:text="Mr. Solaiman"
             android:textColor="@color/color_green"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/txtWish"
             app:layout_constraintTop_toBottomOf="@+id/txtWish" />
 
@@ -72,7 +82,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:itemCount="2"
-            tools:layout_editor_absoluteX="35dp"
+            android:paddingHorizontal="8dp"
             tools:listitem="@layout/note_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

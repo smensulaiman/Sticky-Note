@@ -55,9 +55,9 @@ public abstract class NoteDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             noteDao.insetNote(new Note("Title", "Description", 0, R.color.color_green, System.currentTimeMillis()));
-            categoryDao.insetCategory(new CategoryModel("Contact Info", R.drawable.ic_phone));
-            categoryDao.insetCategory(new CategoryModel("Expense Info", R.drawable.ic_expense));
-            categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security));
+            categoryDao.insetCategory(new CategoryModel("Contact Info", R.drawable.ic_phone, ""));
+            categoryDao.insetCategory(new CategoryModel("Expense Info", R.drawable.ic_expense, ""));
+            categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security, ""));
             return null;
         }
     }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,8 @@ import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
 import com.suffixit.stickynote.utils.MenuItem;
 
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
     @BindView(R.id.imgHome)
     ImageView imgHome;
+
+    @BindView(R.id.txtDateTime)
+    TextView txtDateTime;
 
     @BindView(R.id.imgPersonal)
     ImageView imgPersonal;
@@ -50,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        txtDateTime.setText(new Date().toString());
         Uri uri = Uri.parse("https://avatars.githubusercontent.com/u/49442391?v=4");
         imageView.setImageURI(uri);
     }

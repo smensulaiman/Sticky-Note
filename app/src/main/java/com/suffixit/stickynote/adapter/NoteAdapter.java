@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.Note;
@@ -47,6 +49,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.txtNoteDescription.setText(note.getDescription());
         holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
 
+        holder.itemView.setOnLongClickListener(v -> {
+            if(holder.layoutDelete.getVisibility() != View.VISIBLE){
+                holder.layoutDelete.setVisibility(View.VISIBLE);
+                YoYo.with(Techniques.BounceIn)
+                        .duration(500)
+                        .repeat(0)
+                        .playOn(holder.btnDelete);
+            }
+            return false;
+        });
+
         YoYo.with(Techniques.BounceIn)
                 .duration(700)
                 .repeat(0)
@@ -68,11 +81,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         @BindView(R.id.container)
         ConstraintLayout container;
 
+        @BindView(R.id.layoutDelete)
+        RelativeLayout layoutDelete;
+
         @BindView(R.id.txtNoteTitle)
         MaterialTextView txtNoteTitle;
 
         @BindView(R.id.txtNoteDescription)
         MaterialTextView txtNoteDescription;
+
+        @BindView(R.id.btnDelete)
+        MaterialButton btnDelete;
 
         @BindView(R.id.dateTime)
         MaterialTextView dateTime;

@@ -4,10 +4,13 @@
     <color name="color_white">#fffffc</color>
     <color name="color_black">#212529</color>
     <color name="color_black_light">#C4212529</color>
+    <color name="color_black_transparent">#65212529</color>
     <color name="color_accent">#FF03DAC5</color>
 
     <color name="color_green">#ED52B77A</color>
+    <color name="color_green_transparent">#3152B77A</color>
     <color name="color_red_dark">#e63946</color>
+    <color name="color_red">#F3E63946</color>
     <color name="color_red_light">#ffadad</color>
     <color name="color_sky_light">#9bf6ff</color>
     <color name="color_yellow">#FFD53B</color>

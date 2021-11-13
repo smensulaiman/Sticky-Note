@@ -11,10 +11,12 @@ public class CategoryModel {
     private int categoryId;
     private String categoryTitle;
     private int icon;
+    private String colorCode;
 
-    public CategoryModel(String categoryTitle, int icon) {
+    public CategoryModel(String categoryTitle, int icon, String colorCode) {
         this.categoryTitle = categoryTitle;
         this.icon = icon;
+        this.colorCode = colorCode;
     }
 
     public int getCategoryId() {
@@ -39,5 +41,13 @@ public class CategoryModel {
 
     public void setIcon(int icon) {
         this.icon = icon;
+    }
+
+    public String getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
     }
 }
