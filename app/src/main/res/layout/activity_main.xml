@@ -23,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/color_white"
-                app:title="Sticky Notes" />
+                app:title="Sticky Notes"
+                app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -36,7 +37,7 @@
             android:textSize="10sp"
             android:paddingVertical="2dp"
             android:background="@color/color_green_transparent"
-            app:layout_constraintTop_toBottomOf="@id/toolbarContainer"/>
+            app:layout_constraintTop_toBottomOf="@id/toolbarContainer" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView"
@@ -121,7 +122,7 @@
                 android:layout_weight="1"
                 android:padding="16dp"
                 android:clickable="true"
-                android:background="@drawable/green_ripple"/>
+                android:background="@drawable/green_ripple" />
 
         </LinearLayout>
 
@@ -135,6 +136,6 @@
         android:outlineSpotShadowColor="@android:color/transparent"
         app:srcCompat="@drawable/ic_add"
         android:backgroundTint="@color/color_green"
-        app:tint="@color/color_white"/>
+        app:tint="@color/color_white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

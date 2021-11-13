@@ -8,8 +8,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
 import com.suffixit.stickynote.utils.MenuItem;
@@ -21,6 +23,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements StickyBottomBarViewItemChangeListener {
+
+    @BindView(R.id.toolbar)
+    MaterialToolbar toolbar;
 
     @BindView(R.id.imgHome)
     ImageView imgHome;
@@ -56,9 +61,15 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        setupToolbar();
+
         txtDateTime.setText(new Date().toString());
         Uri uri = Uri.parse("https://avatars.githubusercontent.com/u/49442391?v=4");
         imageView.setImageURI(uri);
+    }
+
+    private void setupToolbar() {
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -68,6 +79,11 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
     }
 
     public void changeFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment currentFragment = fragmentManager.findFragmentById(R.id.fragmentContainer);
+        if (currentFragment != null && currentFragment.getClass() == fragment.getClass()) {
+            fragment = currentFragment;
+        }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
     }
 
