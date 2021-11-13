@@ -1,20 +1,20 @@
 package com.suffixit.stickynote.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.Note;
@@ -76,11 +76,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.btnCancel.setOnClickListener(v -> holder.layoutDelete.setVisibility(View.GONE));
         holder.btnDelete.setOnClickListener(v ->
                 {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Alert!!!")
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context).setTitle("Alert!!!")
                             .setMessage("Are you sure want to delete?")
                             .setPositiveButton("YES", (dialog, which) -> {
                                 holder.layoutDelete.setVisibility(View.GONE);
-                                if(noteAdapterInterface != null){
+                                if (noteAdapterInterface != null) {
                                     noteAdapterInterface.onItemDelete(note);
                                 }
                             })
@@ -89,7 +89,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-                );
+        );
 
         YoYo.with(Techniques.BounceIn)
                 .duration(700)
