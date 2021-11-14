@@ -1,16 +1,12 @@
 package com.suffixit.stickynote.utils;
 
 import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,9 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.adapter.ColorAdapter;
 import com.suffixit.stickynote.adapter.ColorListInterface;
 import com.suffixit.stickynote.adapter.IconAdapter;
+import com.suffixit.stickynote.adapter.IconListInterface;
 import com.suffixit.stickynote.model.CategoryModel;
+import com.suffixit.stickynote.model.ColorModel;
 import com.suffixit.stickynote.model.Icon;
 
 import java.util.ArrayList;
@@ -38,6 +37,7 @@ public class CategoryDialogFragment extends DialogFragment {
     private int icon;
     private String hexColor;
     private List<Icon> iconList;
+    private List<ColorModel> colorModelList;
 
     private DialogListener dialogListener;
 
@@ -69,30 +69,56 @@ public class CategoryDialogFragment extends DialogFragment {
         mDefaultColor = ContextCompat.getColor(getContext(), R.color.color_white);
 
         final TextInputEditText etTitle = view.findViewById(R.id.etTitle);
-        final Button btChooseColor = view.findViewById(R.id.btnColorPicker);
         createIcons();
-        final RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        recyclerView.setLayoutManager(layoutManager);
-        final IconAdapter iconAdapter = new IconAdapter(getContext(),iconList);
-        recyclerView.setAdapter(iconAdapter);
-        iconAdapter.setColorListInterface(new ColorListInterface() {
-            @Override
-            public void onItemClick(int position, Icon categoryIcon) {
-                icon = categoryIcon.getIcon();
-            }
-        });
+        createColor();
+        setIconAdapter(view);
+        setColorAdapter(view);
 
-        final View colorPreview = view.findViewById(R.id.preview_selected_color);
         Button btnDone = view.findViewById(R.id.btnDone);
-
-        btChooseColor.setOnClickListener(v -> openColorPicker(colorPreview));
 
         btnDone.setOnClickListener(view1 -> {
             CategoryModel categoryModel = new CategoryModel(etTitle.getText().toString(), icon, hexColor);
             dialogListener.onFinishEditDialog(categoryModel);
             dismiss();
         });
+    }
+
+    private void setColorAdapter(View view) {
+        final RecyclerView colorRecyclerView = view.findViewById(R.id.colorRecyclerView);
+        LinearLayoutManager colorLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        colorRecyclerView.setLayoutManager(colorLayoutManager);
+        final ColorAdapter colorAdapter = new ColorAdapter(getContext(), colorModelList);
+        colorRecyclerView.setAdapter(colorAdapter);
+        colorAdapter.setColorListInterface(new ColorListInterface() {
+            @Override
+            public void onItemClick(int position, ColorModel categoryIcon) {
+                hexColor = categoryIcon.getColor();
+            }
+        });
+    }
+
+    private void setIconAdapter(View view) {
+        final RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+        final IconAdapter iconAdapter = new IconAdapter(getContext(),iconList);
+        recyclerView.setAdapter(iconAdapter);
+        iconAdapter.setIconListInterface(new IconListInterface() {
+            @Override
+            public void onItemClick(int position, Icon categoryIcon) {
+                icon = categoryIcon.getIcon();
+            }
+        });
+    }
+
+    private void createColor() {
+        colorModelList = new ArrayList<>();
+        colorModelList.add(new ColorModel("#93C47D"));
+        colorModelList.add(new ColorModel("#3d85c6"));
+        colorModelList.add(new ColorModel("#45818e"));
+        colorModelList.add(new ColorModel("#8e7cc3"));
+        colorModelList.add(new ColorModel("#e06666"));
+        colorModelList.add(new ColorModel("#cfe2f3"));
     }
 
     private void createIcons() {
@@ -116,22 +142,4 @@ public class CategoryDialogFragment extends DialogFragment {
         getDialog().getWindow().setAttributes(lp);
     }
 
-    public void openColorPicker(View colorPreview) {
-        AmbilWarnaDialog colorPicker = new AmbilWarnaDialog(getContext(),
-                mDefaultColor,
-                new AmbilWarnaDialog.OnAmbilWarnaListener() {
-                    @Override
-                    public void onCancel(AmbilWarnaDialog dialog) {
-                        dialog.getDialog().dismiss();
-                    }
-
-                    @Override
-                    public void onOk(AmbilWarnaDialog dialog, int color) {
-                        mDefaultColor = color;
-                        colorPreview.setBackgroundColor(mDefaultColor);
-                        hexColor = String.format("#%06X", (0xFFFFFF & mDefaultColor));
-                    }
-                });
-        colorPicker.show();
-    }
 }

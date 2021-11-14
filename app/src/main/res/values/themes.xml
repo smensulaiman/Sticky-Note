@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.StickyNote" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+        <!-- Primary brand colorModel. -->
         <item name="colorPrimary">@color/color_green</item>
         <item name="colorPrimaryVariant">@color/color_green_dark</item>
         <item name="colorOnPrimary">@color/color_white</item>
-        <!-- Secondary brand color. -->
+        <!-- Secondary brand colorModel. -->
         <item name="colorSecondary">@color/color_blue_light</item>
         <item name="colorSecondaryVariant">@color/color_purple_light</item>
         <item name="colorOnSecondary">@color/color_black</item>
