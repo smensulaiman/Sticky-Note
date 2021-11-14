@@ -6,23 +6,26 @@
     <color name="white">#fffffc</color>
     <color name="black">#212529</color>
     <color name="color_black_light">#C4212529</color>
-    <color name="color_black_transparent">#65212529</color>
+    <color name="color_black_transparent">#65444A50</color>
     <color name="color_accent">#FF03DAC5</color>
 
-    <color name="color_green">#ED52B77A</color>
     <color name="color_green_transparent">#3152B77A</color>
-    <color name="color_red_dark">#e63946</color>
-    <color name="color_red">#F3E63946</color>
+    <color name="color_green_light">#CFFBC6</color>
+    <color name="color_green">#ED52B77A</color>
+    <color name="color_green_dark">#f816a463</color>
+
     <color name="color_red_light">#ffadad</color>
-    <color name="color_sky_light">#9bf6ff</color>
+    <color name="color_red">#F3E63946</color>
+    <color name="color_red_dark">#e63946</color>
+
+    <color name="color_sky_light">#B0F6FD</color>
+
     <color name="color_yellow">#FFD53B</color>
+    <color name="color_yellow_light">#FFF4E0</color>
     <color name="color_red_yellow">#ffd6a5</color>
-    <color name="color_pink_light">#ffc6ff</color>
+    <color name="color_pink_light">#FFE9F4</color>
     <color name="color_blue_light">#a0c4ff</color>
     <color name="color_background">#F0F4F7</color>
-    <color name="color_green_light">#caffbf</color>
-    <color name="color_yellow_light">#fdffb6</color>
-    <color name="color_green_dark">#EB40915E</color>
     <color name="color_purple_light">#bdb2ff</color>
     <color name="color_transparent">#45FFFFFF</color>
     <color name="icon_background">#A2A8A8</color>

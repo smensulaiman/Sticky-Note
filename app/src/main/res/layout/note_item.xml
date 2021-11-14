@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:layout_margin="8dp"
-    android:clickable="true"
+    android:clickable="false"
     android:elevation="2dp"
     app:cardCornerRadius="4dp">
 
@@ -38,12 +38,12 @@
             android:layout_height="0dp"
             android:layout_below="@id/txtNoteTitle"
             android:background="@color/color_transparent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:ellipsize="end"
             android:fontFamily="@font/philosopher_regular"
             android:justificationMode="inter_word"
-            android:maxLines="5"
-            android:paddingLeft="8dp"
-            android:paddingTop="4dp"
+            android:maxLines="7"
+            android:padding="8dp"
             android:text="Description"
             android:textColor="@color/color_black_light"
             android:textSize="14sp"
@@ -58,10 +58,9 @@
             android:layout_height="wrap_content"
             android:background="@color/color_transparent"
             android:fontFamily="@font/montserrat_bold"
-            android:padding="8dp"
+            android:padding="4dp"
             android:text="12/12/12"
             android:textSize="10sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <ImageView
@@ -71,6 +70,7 @@
             android:layout_margin="8dp"
             android:background="@drawable/round_background"
             android:padding="8dp"
+            android:clickable="true"
             android:src="@drawable/ic_share"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/txtNoteDescription" />
