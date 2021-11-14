@@ -56,7 +56,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.txtNoteDescription.setText(note.getDescription());
         holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
 
-        holder.itemView.setOnLongClickListener(v -> {
+        holder.container.setOnLongClickListener(v -> {
             if (holder.layoutDelete.getVisibility() != View.VISIBLE) {
                 holder.layoutDelete.setVisibility(View.VISIBLE);
 
