@@ -16,10 +16,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.adapter.ColorListInterface;
+import com.suffixit.stickynote.adapter.IconAdapter;
 import com.suffixit.stickynote.model.CategoryModel;
+import com.suffixit.stickynote.model.Icon;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 
@@ -29,6 +37,7 @@ public class CategoryDialogFragment extends DialogFragment {
     private int mDefaultColor;
     private int icon;
     private String hexColor;
+    private List<Icon> iconList;
 
     private DialogListener dialogListener;
 
@@ -57,16 +66,25 @@ public class CategoryDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mDefaultColor = ContextCompat.getColor(getContext(), R.color.color_white);
 
         final TextInputEditText etTitle = view.findViewById(R.id.etTitle);
         final Button btChooseColor = view.findViewById(R.id.btnColorPicker);
-        final RadioGroup radioGroupIcon = view.findViewById(R.id.radioGroupIcon);
+        createIcons();
+        final RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+        final IconAdapter iconAdapter = new IconAdapter(getContext(),iconList);
+        recyclerView.setAdapter(iconAdapter);
+        iconAdapter.setColorListInterface(new ColorListInterface() {
+            @Override
+            public void onItemClick(int position, Icon categoryIcon) {
+                icon = categoryIcon.getIcon();
+            }
+        });
+
         final View colorPreview = view.findViewById(R.id.preview_selected_color);
         Button btnDone = view.findViewById(R.id.btnDone);
-
-        radioGroupIcon.setOnCheckedChangeListener((group, checkedId) -> icon = R.drawable.ic_add);
 
         btChooseColor.setOnClickListener(v -> openColorPicker(colorPreview));
 
@@ -75,6 +93,18 @@ public class CategoryDialogFragment extends DialogFragment {
             dialogListener.onFinishEditDialog(categoryModel);
             dismiss();
         });
+    }
+
+    private void createIcons() {
+        iconList = new ArrayList<>();
+        iconList.add(new Icon(R.drawable.ic_add));
+        iconList.add(new Icon(R.drawable.ic_cloud));
+        iconList.add(new Icon(R.drawable.ic_date));
+        iconList.add(new Icon(R.drawable.ic_expense));
+        iconList.add(new Icon(R.drawable.ic_fire));
+        iconList.add(new Icon(R.drawable.ic_key));
+        iconList.add(new Icon(R.drawable.ic_note));
+        iconList.add(new Icon(R.drawable.ic_trending));
     }
 
     @Override

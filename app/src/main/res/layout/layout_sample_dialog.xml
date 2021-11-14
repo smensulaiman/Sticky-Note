@@ -47,86 +47,12 @@
         android:textColor="@color/black"
         android:textSize="14sp" />
 
-    <HorizontalScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="2dp"
-        android:scrollbars="none">
-
-        <RadioGroup
-            android:id="@+id/radioGroupIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/color_green_transparent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <RadioButton
-                android:id="@+id/radioBtnFire"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/selector"
-                android:button="@null"
-                android:checked="true"
-                android:drawableLeft="@drawable/ic_fire"
-                android:gravity="center"
-                android:padding="16dp" />
-
-            <RadioButton
-                android:id="@+id/radioBtnDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/selector"
-                android:button="@null"
-                android:drawableLeft="@drawable/ic_date"
-                android:gravity="center"
-                android:padding="16dp" />
-
-            <RadioButton
-                android:id="@+id/radioBtnTrending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/selector"
-                android:button="@null"
-                android:drawableLeft="@drawable/ic_trending"
-                android:padding="16dp" />
-
-            <RadioButton
-                android:id="@+id/radioBtnNote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/selector"
-                android:button="@null"
-                android:drawableLeft="@drawable/ic_note"
-                android:padding="16dp" />
-
-            <RadioButton
-                android:id="@+id/radioBtnKey"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/selector"
-                android:button="@null"
-                android:drawableLeft="@drawable/ic_key"
-                android:padding="16dp" />
-
-            <RadioButton
-                android:id="@+id/radioBtnCloud"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:background="@drawable/selector"
-                android:button="@null"
-                android:drawableLeft="@drawable/ic_cloud"
-                android:padding="16dp" />
-        </RadioGroup>
-
-    </HorizontalScrollView>
+        android:background="@color/color_green_transparent"
+        android:layout_marginVertical="2dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

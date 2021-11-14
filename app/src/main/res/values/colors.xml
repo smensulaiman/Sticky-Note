@@ -28,5 +28,6 @@
     <color name="color_background">#F0F4F7</color>
     <color name="color_purple_light">#bdb2ff</color>
     <color name="color_transparent">#45FFFFFF</color>
+    <color name="icon_background">#A2A8A8</color>
 
 </resources>
