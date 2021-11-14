@@ -51,9 +51,7 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if(dialogFragment == null){
             dialogFragment = new CategoryDialogFragment();
-            dialogFragment.setDialogListener(categoryModel -> {
-                categoryViewModel.insetCategoryModel(categoryModel);
-            });
+            dialogFragment.setDialogListener(categoryModel -> categoryViewModel.insetCategoryModel(categoryModel));
         }
         dialogFragment.show(getFragmentManager(), "dialog");
     }
