@@ -84,7 +84,7 @@
             tools:itemCount="2"
             android:paddingHorizontal="8dp"
             tools:listitem="@layout/note_item"/>
-
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
