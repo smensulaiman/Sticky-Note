@@ -4,18 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="30dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Create Category "
-        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textColor="@color/color_black"
         android:textSize="16sp"
         android:textStyle="bold" />
-
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -24,7 +24,7 @@
         android:layout_marginVertical="2dp"
         android:background="@color/white"
         android:hint="Title"
-        android:padding="4dp">
+        android:padding="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etTitle"
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_green_transparent"
-        android:layout_marginVertical="2dp"/>
+        android:padding="8dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -67,17 +67,16 @@
         android:id="@+id/colorRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="2dp"/>
-
+        android:padding="8dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="4dp"
+        android:layout_marginVertical="8dp"
         android:paddingVertical="10dp"
-        app:cornerRadius="25dp"
         android:text="Create"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:cornerRadius="25dp" />
 
 </LinearLayout>

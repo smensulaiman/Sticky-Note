@@ -1,4 +1,4 @@
-package com.suffixit.stickynote.view;
+package com.suffixit.stickynote.view.personal;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.suffixit.stickynote.R;
-import com.suffixit.stickynote.utils.CategoryDialogFragment;
 import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 
 import butterknife.BindView;

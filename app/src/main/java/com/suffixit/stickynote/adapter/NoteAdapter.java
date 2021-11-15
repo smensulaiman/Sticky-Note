@@ -92,7 +92,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         );
 
         YoYo.with(Techniques.BounceIn)
-                .duration(700)
+                .duration(500)
                 .repeat(0)
                 .playOn(holder.itemView);
     }

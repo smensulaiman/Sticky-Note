@@ -1,113 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:layout_margin="8dp"
-    android:clickable="false"
-    android:elevation="2dp"
-    app:cardCornerRadius="4dp">
+    android:layout_height="200dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_green">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtNoteTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:background="@color/color_black_transparent"
-            android:ellipsize="end"
-            android:fontFamily="@font/philosopher_bold"
-            android:maxLines="1"
-            android:paddingVertical="2dp"
-            android:text="Title"
-            android:textAlignment="center"
-            android:textColor="@color/color_white"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txtNoteDescription"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_below="@id/txtNoteTitle"
-            android:background="@color/color_transparent"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:ellipsize="end"
-            android:fontFamily="@font/philosopher_regular"
-            android:justificationMode="inter_word"
-            android:maxLines="7"
-            android:padding="8dp"
-            android:text="Description"
-            android:textColor="@color/color_black_light"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/dateTime"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNoteTitle" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/dateTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color_transparent"
-            android:fontFamily="@font/montserrat_bold"
-            android:padding="4dp"
-            android:text="12/12/12"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <ImageView
-            android:id="@+id/share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/round_background"
-            android:padding="8dp"
-            android:clickable="true"
-            android:src="@drawable/ic_share"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/txtNoteDescription" />
-
-        <RelativeLayout
-            android:id="@+id/layoutDelete"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#CD202720"
-            android:gravity="center"
-            android:visibility="gone">
+            android:layout_margin="10dp"
+            android:elevation="4dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
-                android:text="DELETE"
-                android:textColor="@color/color_red_light"
-                app:cornerRadius="25dp"
-                app:strokeColor="@color/color_red_light" />
+                android:layout_height="match_parent">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCancel"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnDelete"
-                android:layout_marginHorizontal="40dp"
-                android:text="CANCEL"
-                android:textColor="@color/color_white"
-                app:cornerRadius="25dp"
-                app:strokeColor="@color/color_white" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtNoteTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:background="@color/color_black_transparent"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/philosopher_bold"
+                    android:maxLines="1"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:text="Title"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </RelativeLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtNoteDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_below="@id/txtNoteTitle"
+                    android:background="@color/color_transparent"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/philosopher_regular"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:justificationMode="inter_word"
+                    android:maxLines="6"
+                    android:padding="8dp"
+                    android:text="Description"
+                    android:textColor="@color/color_black_light"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/dateTime"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNoteTitle" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/dateTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_transparent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:padding="4dp"
+                    android:text="12/12/12"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-</com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/round_background"
+                    android:clickable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/txtNoteDescription" />
+
+                <RelativeLayout
+                    android:id="@+id/layoutDelete"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#CD202720"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDelete"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="40dp"
+                        android:text="DELETE"
+                        android:textColor="@color/color_red_light"
+                        app:cornerRadius="25dp"
+                        app:strokeColor="@color/color_red_light" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancel"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/btnDelete"
+                        android:layout_marginHorizontal="40dp"
+                        android:text="CANCEL"
+                        android:textColor="@color/color_white"
+                        app:cornerRadius="25dp"
+                        app:strokeColor="@color/color_white" />
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:scaleType="fitStart"
+        android:src="@drawable/tape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FF9800" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

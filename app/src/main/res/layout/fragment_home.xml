@@ -20,7 +20,8 @@
         app:tabIndicatorFullWidth="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginHorizontal="8dp"/>
+        android:layout_marginHorizontal="8dp"
+        style="@style/Widget.MaterialComponents.CustomTabLayout"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

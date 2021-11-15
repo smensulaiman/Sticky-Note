@@ -18,12 +18,16 @@ import com.suffixit.stickynote.repository.NoteDao;
 @Database(entities = {Note.class, CategoryModel.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 
+    private static Context myContext;
+
     private static NoteDatabase instance;
 
     public abstract NoteDao noteDao();
+
     public abstract CategoryDao categoryDao();
 
     public static synchronized NoteDatabase getInstance(Context context) {
+        myContext = context;
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     NoteDatabase.class, "note_database")
@@ -34,7 +38,7 @@ public abstract class NoteDatabase extends RoomDatabase {
         return instance;
     }
 
-    public static RoomDatabase.Callback callback = new RoomDatabase.Callback(){
+    public static RoomDatabase.Callback callback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
@@ -42,33 +46,27 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
     };
 
-    public static class PopulateDatabaseAsync extends AsyncTask<Void, Void, Void>{
+    public static class PopulateDatabaseAsync extends AsyncTask<Void, Void, Void> {
 
         private NoteDao noteDao;
         private CategoryDao categoryDao;
 
-        public PopulateDatabaseAsync(NoteDatabase noteDatabase){
+        public PopulateDatabaseAsync(NoteDatabase noteDatabase) {
             noteDao = noteDatabase.noteDao();
             categoryDao = noteDatabase.categoryDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_yellow_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_pink_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_green_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_sky_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_yellow_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_pink_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_green_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_sky_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_yellow_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_pink_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_green_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note("Title", "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.", 0, R.color.color_sky_light, System.currentTimeMillis()));
-            categoryDao.insetCategory(new CategoryModel("Contact Info", R.drawable.ic_phone, ""));
-            categoryDao.insetCategory(new CategoryModel("Expense Info", R.drawable.ic_expense, ""));
-            categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security, ""));
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_yellow_light, System.currentTimeMillis()));
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_pink_light, System.currentTimeMillis()));
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_green_light, System.currentTimeMillis()));
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_sky_light, System.currentTimeMillis()));
+
+            categoryDao.insetCategory(new CategoryModel("Contact Info", R.drawable.ic_phone, R.color.color_yellow_light));
+            categoryDao.insetCategory(new CategoryModel("Expense Info", R.drawable.ic_expense, R.color.color_pink_light));
+            categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security, R.color.color_green_light));
+            categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security, R.color.color_sky_light));
             return null;
         }
     }

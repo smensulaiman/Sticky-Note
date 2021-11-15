@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey;
 public class ColorModel {
     @PrimaryKey(autoGenerate = true)
     private int colorId;
-    private String color;
+    private int color;
 
-    public ColorModel(String color) {
+    public ColorModel(int color) {
         this.color = color;
     }
 
@@ -21,11 +21,11 @@ public class ColorModel {
         this.colorId = colorId;
     }
 
-    public String getColor() {
+    public int getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(int color) {
         this.color = color;
     }
 }

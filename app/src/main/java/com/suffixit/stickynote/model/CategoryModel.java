@@ -11,9 +11,9 @@ public class CategoryModel {
     private int categoryId;
     private String categoryTitle;
     private int icon;
-    private String color;
+    private int color;
 
-    public CategoryModel(String categoryTitle, int icon, String color) {
+    public CategoryModel(String categoryTitle, int icon, int color) {
         this.categoryTitle = categoryTitle;
         this.icon = icon;
         this.color = color;
@@ -43,11 +43,11 @@ public class CategoryModel {
         this.icon = icon;
     }
 
-    public String getColor() {
+    public int getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(int color) {
         this.color = color;
     }
 

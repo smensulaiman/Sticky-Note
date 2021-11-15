@@ -3,10 +3,12 @@ package com.suffixit.stickynote.view;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -15,6 +17,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
 import com.suffixit.stickynote.utils.MenuItem;
+import com.suffixit.stickynote.view.personal.PersonalFragment;
 
 import java.util.Date;
 
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
     @BindView(R.id.imageView)
     SimpleDraweeView imageView;
 
+    @BindView(R.id.groupWeather)
+    Group groupWeather;
 
     @OnClick(R.id.imgHome)
     public void changeFragmentToHome() {
@@ -94,12 +99,14 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
                 changeFragment(new HomeFragment());
                 imgHome.setColorFilter(getColor(R.color.color_green));
                 imgPersonal.setColorFilter(getColor(R.color.color_black));
+                groupWeather.setVisibility(View.VISIBLE);
                 break;
             }
             case ITEM_PERSONAL: {
                 changeFragment(new PersonalFragment());
                 imgPersonal.setColorFilter(getColor(R.color.color_green));
                 imgHome.setColorFilter(getColor(R.color.color_black));
+                groupWeather.setVisibility(View.GONE);
                 break;
             }
             default: {

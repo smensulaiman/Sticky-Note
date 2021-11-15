@@ -9,7 +9,16 @@
         <item name="colorSecondary">@color/color_blue_light</item>
         <item name="colorSecondaryVariant">@color/color_purple_light</item>
         <item name="colorOnSecondary">@color/color_black</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">@color/color_white</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/color_green</item>
     </style>
+
+    <style name="TextAppearance.AppCompat.MediumToolbarTitle" parent="Base.TextAppearance.AppCompat.Medium">
+        <item name="fontFamily">@font/philosopher_bold</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
 </resources>
