@@ -91,8 +91,8 @@ public class NewNoteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle("Create New Note");
-        toolbar.setTitleTextColor(getColor(android.R.color.black));
-        toolbar.getNavigationIcon().setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_ATOP);
+        toolbar.setTitleTextColor(getColor(android.R.color.white));
+        toolbar.getNavigationIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 }
