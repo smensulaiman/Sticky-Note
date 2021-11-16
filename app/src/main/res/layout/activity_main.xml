@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/philosopher_bold"
-            android:text="25&#xb0;C"
+            android:text=""
             android:textColor="@color/color_green_dark"
             android:textSize="24sp"
             android:textStyle="bold"

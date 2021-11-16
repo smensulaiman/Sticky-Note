@@ -12,14 +12,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
+import com.suffixit.stickynote.model.weather.WeatherResponseModel;
 import com.suffixit.stickynote.utils.MenuItem;
 import com.suffixit.stickynote.view.personal.PersonalFragment;
+import com.suffixit.stickynote.viewmodel.WeatherViewModel;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -36,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
     @BindView(R.id.txtDateTime)
     TextView txtDateTime;
+
+    @BindView(R.id.txtTemperature)
+    TextView txtTemperature;
 
     @BindView(R.id.imgPersonal)
     ImageView imgPersonal;
@@ -64,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         startActivity(new Intent(MainActivity.this, NewNoteActivity.class));
     }
 
+    private WeatherViewModel weatherViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +82,11 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
         setupToolbar();
 
-        txtDateTime.setText(new Date().toString());
+        weatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel.class);
+        weatherViewModel.getWeatherData().observe(this, weatherResponseModel ->
+                txtTemperature.setText(Math.round(weatherResponseModel.getCurrent().getTemp()) + "\u2103"));
+
+        txtDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy").format(new Date()));
         Uri uri = Uri.parse("https://avatars.githubusercontent.com/u/49442391?v=4");
         imageView.setImageURI(uri);
     }
