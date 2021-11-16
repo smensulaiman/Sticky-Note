@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
     @BindView(R.id.groupWeather)
     Group groupWeather;
+
+    @BindView(R.id.groupHome)
+    Group groupHome;
 
     @OnClick(R.id.imgHome)
     public void changeFragmentToHome() {
@@ -116,4 +120,5 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
             }
         }
     }
+
 }

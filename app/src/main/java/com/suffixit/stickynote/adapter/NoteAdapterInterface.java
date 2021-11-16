@@ -5,5 +5,6 @@ import com.suffixit.stickynote.model.Note;
 public interface NoteAdapterInterface {
 
     void onItemDelete(Note note);
+    void onClickItem(Note note);
 
 }

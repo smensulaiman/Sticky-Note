@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.NoteAdapter;
+import com.suffixit.stickynote.adapter.NoteAdapterInterface;
+import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.viewmodel.NoteViewModel;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class NotesFragment extends Fragment {
 
     private NoteViewModel noteViewModel;
     private NoteAdapter noteAdapter;
+    private NoteDetailsFragment noteDetailsFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,10 +50,23 @@ public class NotesFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         noteAdapter = new NoteAdapter(getContext(), new ArrayList<>());
-        noteAdapter.setNoteAdapterInterface(note -> {
-            noteViewModel.deleteNote(note);
-            noteAdapter.notifyDataSetChanged();
+        noteAdapter.setNoteAdapterInterface(new NoteAdapterInterface() {
+            @Override
+            public void onItemDelete(Note note) {
+                noteViewModel.deleteNote(note);
+                noteAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onClickItem(Note note) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("NOTE",note);
+                noteDetailsFragment = new NoteDetailsFragment();
+                noteDetailsFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,noteDetailsFragment).addToBackStack(null).commit();
+            }
         });
+
         recyclerView.setAdapter(noteAdapter);
 
         noteViewModel = ViewModelProviders.of(requireActivity()).get(NoteViewModel.class);

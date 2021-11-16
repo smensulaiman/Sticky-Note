@@ -1,6 +1,7 @@
 package com.suffixit.stickynote.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.txtNoteTitle.setText(note.getTitle());
         holder.txtNoteDescription.setText(note.getDescription());
         holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
+
+        holder.txtNoteDescription.setOnClickListener(v -> {
+            Log.d("ADAPTER", note.toString());
+            noteAdapterInterface.onClickItem(note);
+        });
 
         holder.container.setOnLongClickListener(v -> {
             if (holder.layoutDelete.getVisibility() != View.VISIBLE) {
