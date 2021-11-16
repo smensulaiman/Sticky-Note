@@ -1,12 +1,15 @@
 package com.suffixit.stickynote.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
 @Entity(tableName = "note_table")
-public class Note {
+public class Note implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -23,6 +26,27 @@ public class Note {
         this.noteBackgroundColor = noteBackgroundColor;
         this.noteCreatedAt = noteCreatedAt;
     }
+
+    protected Note(Parcel in) {
+        id = in.readInt();
+        title = in.readString();
+        description = in.readString();
+        noteCategoryId = in.readInt();
+        noteBackgroundColor = in.readInt();
+        noteCreatedAt = in.readLong();
+    }
+
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
+        @Override
+        public Note createFromParcel(Parcel in) {
+            return new Note(in);
+        }
+
+        @Override
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -82,5 +106,20 @@ public class Note {
                 ", noteBackgroundColor=" + noteBackgroundColor +
                 ", noteCreatedAt=" + noteCreatedAt +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeInt(noteCategoryId);
+        dest.writeInt(noteBackgroundColor);
+        dest.writeLong(noteCreatedAt);
     }
 }
