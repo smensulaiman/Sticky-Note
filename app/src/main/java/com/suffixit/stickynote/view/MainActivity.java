@@ -6,20 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
-import com.suffixit.stickynote.model.weather.WeatherResponseModel;
 import com.suffixit.stickynote.utils.MenuItem;
 import com.suffixit.stickynote.view.personal.PersonalFragment;
 import com.suffixit.stickynote.viewmodel.WeatherViewModel;
@@ -87,8 +84,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
                 txtTemperature.setText(Math.round(weatherResponseModel.getCurrent().getTemp()) + "\u2103"));
 
         txtDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy").format(new Date()));
-        Uri uri = Uri.parse("https://avatars.githubusercontent.com/u/49442391?v=4");
-        imageView.setImageURI(uri);
+        //imageView.setImageURI(Uri.parse("https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"));
     }
 
     private void setupToolbar() {

@@ -39,7 +39,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="Enter Note Title Here"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:inputType="textCapSentences"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_regular"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,6 +63,8 @@
             android:padding="16dp"
             android:hint="Select Category"
             android:textSize="12sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
             android:focusable="false"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,8 +86,10 @@
             android:layout_height="match_parent"
             android:gravity="top"
             android:hint="Enter Description"
-            android:inputType="textMultiLine"
-            android:textSize="12sp" />
+            android:inputType="textCapSentences|textMultiLine"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

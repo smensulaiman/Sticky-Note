@@ -1,9 +1,11 @@
 package com.suffixit.stickynote.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.suffixit.stickynote.R;
@@ -50,10 +53,21 @@ public class NewNoteActivity extends AppCompatActivity {
         if (validationIsPassed()) {
             noteViewModel.insetNote(new Note(txtNoteTitleInput.getEditText().getText().toString(),
                     txtNoteDescriptionInput.getEditText().getText().toString(),
-                    1,
-                    R.color.color_pink_light,
+                    currentCategory.getCategoryId(),
+                    currentCategory.getColor(),
                     System.currentTimeMillis()
             ));
+
+            AlertDialog successDialog = new MaterialAlertDialogBuilder(this)
+                    .setTitle("Success")
+                    .setMessage("Your note is added successfully")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                        onBackPressed();
+                    })
+                    .create();
+            successDialog.show();
+
         } else {
             Toast.makeText(this, "Please fill all fields first", Toast.LENGTH_SHORT).show();
         }
@@ -67,6 +81,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
     private CategoryAdapter categoryAdapter;
     private CategoryViewModel categoryViewModel;
+    private CategoryModel currentCategory;
     private NoteViewModel noteViewModel;
 
     @Override
@@ -83,7 +98,10 @@ public class NewNoteActivity extends AppCompatActivity {
         autoCompleteCategory.setAdapter(categoryAdapter);
 
         autoCompleteCategory.setOnClickListener(v -> autoCompleteCategory.showDropDown());
-        autoCompleteCategory.setOnItemClickListener((parent, view, position, id) -> autoCompleteCategory.setText(categoryViewModel.getAllCategories().getValue().get(position).getCategoryTitle()));
+        autoCompleteCategory.setOnItemClickListener((parent, view, position, id) -> {
+            currentCategory = (CategoryModel) parent.getItemAtPosition(position);
+            autoCompleteCategory.setText(currentCategory.getCategoryTitle());
+        });
         categoryViewModel.getAllCategories().observe(this, categoryModels -> categoryAdapter.setDataList(categoryModels));
     }
 

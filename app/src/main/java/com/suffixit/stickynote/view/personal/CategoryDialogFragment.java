@@ -130,10 +130,13 @@ public class CategoryDialogFragment extends DialogFragment {
 
     private List<ColorModel> prepareColor() {
         List<ColorModel> colorModelList = new ArrayList();
+        colorModelList.add(new ColorModel(R.color.color_green_light));
         colorModelList.add(new ColorModel(R.color.color_yellow_light));
         colorModelList.add(new ColorModel(R.color.color_pink_light));
-        colorModelList.add(new ColorModel(R.color.color_green_light));
+        colorModelList.add(new ColorModel(R.color.color_red_light));
         colorModelList.add(new ColorModel(R.color.color_sky_light));
+        colorModelList.add(new ColorModel(R.color.color_purple_light));
+        colorModelList.add(new ColorModel(R.color.color_blue_light));
         return colorModelList;
     }
 

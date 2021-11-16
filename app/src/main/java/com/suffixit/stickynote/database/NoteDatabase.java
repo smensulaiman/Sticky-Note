@@ -58,15 +58,17 @@ public abstract class NoteDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_green_light, System.currentTimeMillis()));
             noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_yellow_light, System.currentTimeMillis()));
             noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_pink_light, System.currentTimeMillis()));
-            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_green_light, System.currentTimeMillis()));
             noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_sky_light, System.currentTimeMillis()));
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_red_light, System.currentTimeMillis()));
+            noteDao.insetNote(new Note(myContext.getString(R.string.lorem_ipsum_title), myContext.getString(R.string.lorem_ipsum_description), 0, R.color.color_purple_light, System.currentTimeMillis()));
 
             categoryDao.insetCategory(new CategoryModel("Contact Info", R.drawable.ic_phone, R.color.color_yellow_light));
-            categoryDao.insetCategory(new CategoryModel("Expense Info", R.drawable.ic_expense, R.color.color_pink_light));
             categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security, R.color.color_green_light));
-            categoryDao.insetCategory(new CategoryModel("Password Info", R.drawable.ic_security, R.color.color_sky_light));
+            categoryDao.insetCategory(new CategoryModel("Add", R.drawable.ic_add, R.color.color_green_light));
+            categoryDao.insetCategory(new CategoryModel("Cloud", R.drawable.ic_cloud, R.color.color_green_light));
             return null;
         }
     }

@@ -41,6 +41,7 @@ public class CategoryAdapter extends ArrayAdapter {
         ImageView imgCategory = view.findViewById(R.id.imgCategory);
         textView.setText(categoryModel.getCategoryTitle());
         imgCategory.setImageResource(categoryModel.getIcon());
+        imgCategory.setColorFilter(R.color.color_black);
         return view;
     }
 

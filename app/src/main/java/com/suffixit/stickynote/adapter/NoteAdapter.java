@@ -57,7 +57,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.txtNoteDescription.setText(note.getDescription());
         holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
 
-        holder.txtNoteDescription.setOnClickListener(v -> {
+        holder.container.setOnClickListener(v -> {
             Log.d("ADAPTER", note.toString());
             noteAdapterInterface.onClickItem(note);
         });
@@ -76,7 +76,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                         .repeat(0)
                         .playOn(holder.btnCancel);
             }
-            return false;
+            return true;
         });
 
         holder.btnCancel.setOnClickListener(v -> holder.layoutDelete.setVisibility(View.GONE));

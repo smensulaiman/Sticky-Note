@@ -46,10 +46,9 @@ public class NotesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        LinearLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        noteAdapter = new NoteAdapter(getContext(), new ArrayList<>());
+        noteAdapter = new NoteAdapter(getContext(), new ArrayList());
         noteAdapter.setNoteAdapterInterface(new NoteAdapterInterface() {
             @Override
             public void onItemDelete(Note note) {

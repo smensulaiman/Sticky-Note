@@ -46,10 +46,11 @@
             android:layout_width="62dp"
             android:layout_height="62dp"
             android:layout_margin="16dp"
-            app:actualImageResource="@drawable/user"
+            app:actualImageResource="@drawable/placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDateTime"
             app:roundAsCircle="true"
+            android:scaleType="centerCrop"
             app:roundingBorderColor="@color/color_green"
             app:roundingBorderWidth="2dp" />
 
@@ -72,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/philosopher_bold"
-            android:text="Mr. Solaiman"
+            android:text="Mr. X"
             android:textColor="@color/color_green"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/txtWish"
