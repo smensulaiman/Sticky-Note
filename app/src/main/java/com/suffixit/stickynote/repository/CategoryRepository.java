@@ -37,6 +37,10 @@ public class CategoryRepository {
         new DeleteAllCategoryModelsAsync(categoryDao).execute();
     }
 
+    public CategoryModel getCategoryById(int id){
+        return categoryDao.getCategoryById(id);
+    }
+
     public LiveData<List<CategoryModel>> getAllCategories(){
         return allCategories;
     }

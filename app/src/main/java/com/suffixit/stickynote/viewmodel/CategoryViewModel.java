@@ -38,6 +38,10 @@ public class CategoryViewModel extends AndroidViewModel {
         categoryRepository.deleteAllCategoryModels();
     }
 
+    public CategoryModel getCategoryById(int id){
+        return categoryRepository.getCategoryById(id);
+    }
+
     public LiveData<List<CategoryModel>> getAllCategories(){
         return categoryRepository.getAllCategories();
     }

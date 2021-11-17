@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -21,6 +22,7 @@ import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.CategoryAdapter;
 import com.suffixit.stickynote.model.CategoryModel;
 import com.suffixit.stickynote.model.Note;
+import com.suffixit.stickynote.utils.NoteConstants;
 import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 import com.suffixit.stickynote.viewmodel.NoteViewModel;
 
@@ -47,6 +49,9 @@ public class NewNoteActivity extends AppCompatActivity {
 
     @BindView(R.id.autoCompleteCategory)
     MaterialAutoCompleteTextView autoCompleteCategory;
+
+    @BindView(R.id.materialButton)
+    MaterialButton btnSubmit;
 
     @OnClick(R.id.materialButton)
     public void addNewNote() {
@@ -83,6 +88,7 @@ public class NewNoteActivity extends AppCompatActivity {
     private CategoryViewModel categoryViewModel;
     private CategoryModel currentCategory;
     private NoteViewModel noteViewModel;
+    private Note note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +109,16 @@ public class NewNoteActivity extends AppCompatActivity {
             autoCompleteCategory.setText(currentCategory.getCategoryTitle());
         });
         categoryViewModel.getAllCategories().observe(this, categoryModels -> categoryAdapter.setDataList(categoryModels));
+
+        if(getIntent().hasExtra(NoteConstants.NOTE_DETAILS)){
+            note = getIntent().getParcelableExtra(NoteConstants.NOTE_DETAILS);
+            currentCategory = categoryViewModel.getCategoryById(note.getNoteCategoryId());
+            txtNoteTitleInput.getEditText().setText(note.getTitle());
+            txtNoteDescriptionInput.getEditText().setText(note.getDescription());
+            txtNoteCategoryInput.getEditText().setText(currentCategory.getCategoryTitle());
+            btnSubmit.setText("Update");
+        }
+
     }
 
     private void setupToolbar() {
