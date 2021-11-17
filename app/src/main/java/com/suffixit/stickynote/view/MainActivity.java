@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         if (currentFragment != null && currentFragment.getClass() == fragment.getClass()) {
             fragment = currentFragment;
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
     }
 
     @Override
