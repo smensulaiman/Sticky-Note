@@ -8,22 +8,37 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.view.MainActivity;
 import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class PersonalFragment extends Fragment implements View.OnClickListener {
+public class PersonalFragment extends Fragment {
 
-    @BindView(R.id.btnCategory)
-    Button btnAddCategory;
+    @BindView(R.id.layoutCategory)
+    ConstraintLayout layoutCategory;
+
+    @OnClick(R.id.layoutCategory)
+    public void addCategory(){
+        if(dialogFragment == null){
+            dialogFragment = new CategoryDialogFragment();
+            dialogFragment.setDialogListener(categoryModel -> categoryViewModel.insetCategoryModel(categoryModel));
+        }
+        dialogFragment.show(getFragmentManager(), "dialog");
+    }
 
     private CategoryViewModel categoryViewModel;
     private CategoryDialogFragment dialogFragment;
+    private View mainActivity;
+    private Group group;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -38,7 +53,15 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         categoryViewModel = ViewModelProviders.of(requireActivity()).get(CategoryViewModel.class);
-        btnAddCategory.setOnClickListener(this);
+        setView();
+    }
+
+    private void setView() {
+        mainActivity = getActivity().findViewById(R.id.groupHome);
+        if (mainActivity instanceof Group){
+            group = (Group) mainActivity;
+            group.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -47,11 +70,8 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        if(dialogFragment == null){
-            dialogFragment = new CategoryDialogFragment();
-            dialogFragment.setDialogListener(categoryModel -> categoryViewModel.insetCategoryModel(categoryModel));
-        }
-        dialogFragment.show(getFragmentManager(), "dialog");
+    public void onStop() {
+        super.onStop();
+        group.setVisibility(View.VISIBLE);
     }
 }

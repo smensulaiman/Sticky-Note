@@ -113,14 +113,14 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
                 changeFragment(new HomeFragment());
                 imgHome.setColorFilter(getColor(R.color.color_green));
                 imgPersonal.setColorFilter(getColor(R.color.color_black));
-                groupWeather.setVisibility(View.VISIBLE);
+                groupHome.setVisibility(View.VISIBLE);
                 break;
             }
             case ITEM_PERSONAL: {
                 changeFragment(new PersonalFragment());
                 imgPersonal.setColorFilter(getColor(R.color.color_green));
                 imgHome.setColorFilter(getColor(R.color.color_black));
-                groupWeather.setVisibility(View.GONE);
+                groupHome.setVisibility(View.GONE);
                 break;
             }
             default: {

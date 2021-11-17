@@ -36,5 +36,6 @@
     <color name="color_purple_light_two">#CBE4F9</color>
     <color name="color_sky_light_two">#CDF5F6</color>
     <color name="color_yellow_light_two">#EFF9DA</color>
+    <color name="darkGrey">#555555</color>
 
 </resources>
