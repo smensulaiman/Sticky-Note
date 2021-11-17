@@ -69,9 +69,7 @@ public class NotesFragment extends Fragment {
         recyclerView.setAdapter(noteAdapter);
 
         noteViewModel = ViewModelProviders.of(requireActivity()).get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
-            noteAdapter.setNotes(notes);
-        });
+        noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> noteAdapter.setNotes(notes));
 
     }
 }

@@ -110,7 +110,7 @@ public class NewNoteActivity extends AppCompatActivity {
         });
         categoryViewModel.getAllCategories().observe(this, categoryModels -> categoryAdapter.setDataList(categoryModels));
 
-        if(getIntent().hasExtra(NoteConstants.NOTE_DETAILS)){
+        if (getIntent().hasExtra(NoteConstants.NOTE_DETAILS)) {
             note = getIntent().getParcelableExtra(NoteConstants.NOTE_DETAILS);
             currentCategory = categoryViewModel.getCategoryById(note.getNoteCategoryId());
             txtNoteTitleInput.getEditText().setText(note.getTitle());
