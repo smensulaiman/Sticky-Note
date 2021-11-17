@@ -3,14 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/ic_category.xml" value="0.19166666666666668" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/ic_delete.xml" value="0.19166666666666668" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/ic_edit.xml" value="0.16574074074074074" />
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/ic_settings_large.xml" value="0.19166666666666668" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/white_fill_corner_round_color.xml" value="0.19166666666666668" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/white_fill_round_corner.xml" value="0.19166666666666668" />
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/white_transparent.xml" value="0.19166666666666668" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/activity_new_note.xml" value="0.12314814814814815" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/fragment_note_details.xml" value="0.17552083333333332" />
         <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/note_item.xml" value="0.12314814814814815" />
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/personal_fragment.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/appbar_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/green_ripple.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/round_background.xml" value="0.199609375" />
