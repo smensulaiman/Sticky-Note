@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.viewmodel.NoteViewModel;
@@ -33,13 +34,7 @@ public class NoteDetailsFragment extends Fragment {
     @BindView(R.id.txtNoteDetails)
     TextView txtNoteDetails;
 
-    @BindView(R.id.imgEdit)
-    ImageView imgEdit;
-
-    @BindView(R.id.imgDelete)
-    ImageView imgDelete;
-
-    @OnClick(R.id.imgDelete)
+    @OnClick(R.id.btnDelete)
     public void deleteNote() {
         noteViewModel.deleteNote(note);
         getActivity().onBackPressed();
