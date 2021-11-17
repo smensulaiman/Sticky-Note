@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StickyNote">
         <activity
+            android:name=".view.ReadNoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.NewNoteActivity"
             android:exported="false" />
         <activity
@@ -20,6 +23,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,6 +32,7 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/sticky_note_app_widget_info" />

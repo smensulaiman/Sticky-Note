@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -50,7 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDateTime"
             app:roundAsCircle="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:roundingBorderColor="@color/color_green"
             app:roundingBorderWidth="2dp" />
 
@@ -156,18 +157,18 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight=".7" />
 
             <ImageView
                 android:id="@+id/imgHome"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginVertical="10dp"
-                android:layout_marginRight="24dp"
+                android:layout_marginRight="32dp"
                 android:layout_weight="1"
                 android:background="@drawable/green_ripple"
                 android:clickable="true"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:src="@drawable/ic_widgets" />
 
             <ImageView
@@ -179,7 +180,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/green_ripple"
                 android:clickable="true"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:src="@drawable/ic_person" />
 
         </LinearLayout>

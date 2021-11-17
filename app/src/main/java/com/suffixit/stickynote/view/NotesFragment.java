@@ -1,5 +1,6 @@
 package com.suffixit.stickynote.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.NoteAdapter;
 import com.suffixit.stickynote.adapter.NoteAdapterInterface;
 import com.suffixit.stickynote.model.Note;
+import com.suffixit.stickynote.utils.NoteConstants;
 import com.suffixit.stickynote.viewmodel.NoteViewModel;
 
 import java.util.ArrayList;
@@ -58,11 +60,16 @@ public class NotesFragment extends Fragment {
 
             @Override
             public void onClickItem(Note note) {
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("NOTE",note);
-                noteDetailsFragment = new NoteDetailsFragment();
-                noteDetailsFragment.setArguments(bundle);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,noteDetailsFragment).addToBackStack(null).commit();
+
+                Intent intent = new Intent(getContext(), ReadNoteActivity.class);
+                intent.putExtra(NoteConstants.NOTE_DETAILS, note);
+                startActivity(intent);
+
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelable("NOTE",note);
+//                noteDetailsFragment = new NoteDetailsFragment();
+//                noteDetailsFragment.setArguments(bundle);
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,noteDetailsFragment).addToBackStack(null).commit();
             }
         });
 

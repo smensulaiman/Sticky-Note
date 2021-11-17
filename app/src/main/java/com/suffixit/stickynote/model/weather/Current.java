@@ -9,170 +9,110 @@ public class Current {
 
     @SerializedName("dt")
     @Expose
-    public int dt;
+    private long dt;
     @SerializedName("sunrise")
     @Expose
-    public int sunrise;
+    private long sunrise;
     @SerializedName("sunset")
     @Expose
-    public int sunset;
+    private long sunset;
     @SerializedName("temp")
     @Expose
-    public double temp;
+    private double temp;
     @SerializedName("feels_like")
     @Expose
-    public double feelsLike;
+    private double feelsLike;
     @SerializedName("pressure")
     @Expose
-    public int pressure;
+    private int pressure;
     @SerializedName("humidity")
     @Expose
-    public int humidity;
+    private int humidity;
     @SerializedName("dew_point")
     @Expose
-    public double dewPoint;
+    private double dewPoint;
     @SerializedName("uvi")
     @Expose
-    public int uvi;
+    private float uvi;
     @SerializedName("clouds")
     @Expose
-    public int clouds;
+    private int clouds;
     @SerializedName("visibility")
     @Expose
-    public int visibility;
+    private int visibility;
     @SerializedName("wind_speed")
     @Expose
-    public double windSpeed;
+    private float windSpeed;
     @SerializedName("wind_deg")
     @Expose
-    public int windDeg;
+    private int windDeg;
     @SerializedName("wind_gust")
     @Expose
-    public double windGust;
+    private double windGust;
     @SerializedName("weather")
     @Expose
-    public List<Weather> weather = null;
+    private List<Weather> weather = null;
 
     public Current() {
     }
 
-    public int getDt() {
+    public long getDt() {
         return dt;
     }
 
-    public void setDt(int dt) {
-        this.dt = dt;
-    }
-
-    public int getSunrise() {
+    public long getSunrise() {
         return sunrise;
     }
 
-    public void setSunrise(int sunrise) {
-        this.sunrise = sunrise;
-    }
-
-    public int getSunset() {
+    public long getSunset() {
         return sunset;
-    }
-
-    public void setSunset(int sunset) {
-        this.sunset = sunset;
     }
 
     public double getTemp() {
         return temp;
     }
 
-    public void setTemp(double temp) {
-        this.temp = temp;
-    }
-
     public double getFeelsLike() {
         return feelsLike;
-    }
-
-    public void setFeelsLike(double feelsLike) {
-        this.feelsLike = feelsLike;
     }
 
     public int getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
-        this.pressure = pressure;
-    }
-
     public int getHumidity() {
         return humidity;
-    }
-
-    public void setHumidity(int humidity) {
-        this.humidity = humidity;
     }
 
     public double getDewPoint() {
         return dewPoint;
     }
 
-    public void setDewPoint(double dewPoint) {
-        this.dewPoint = dewPoint;
-    }
-
-    public int getUvi() {
+    public float getUvi() {
         return uvi;
-    }
-
-    public void setUvi(int uvi) {
-        this.uvi = uvi;
     }
 
     public int getClouds() {
         return clouds;
     }
 
-    public void setClouds(int clouds) {
-        this.clouds = clouds;
-    }
-
     public int getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(int visibility) {
-        this.visibility = visibility;
-    }
-
-    public double getWindSpeed() {
+    public float getWindSpeed() {
         return windSpeed;
-    }
-
-    public void setWindSpeed(double windSpeed) {
-        this.windSpeed = windSpeed;
     }
 
     public int getWindDeg() {
         return windDeg;
     }
 
-    public void setWindDeg(int windDeg) {
-        this.windDeg = windDeg;
-    }
-
     public double getWindGust() {
         return windGust;
     }
 
-    public void setWindGust(double windGust) {
-        this.windGust = windGust;
-    }
-
     public List<Weather> getWeather() {
         return weather;
-    }
-
-    public void setWeather(List<Weather> weather) {
-        this.weather = weather;
     }
 }
