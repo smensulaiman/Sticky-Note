@@ -23,8 +23,11 @@ import butterknife.OnClick;
 
 public class PersonalFragment extends Fragment {
 
-    @BindView(R.id.layoutCategory)
-    ConstraintLayout layoutCategory;
+    private CategoryViewModel categoryViewModel;
+    private CategoryDialogFragment dialogFragment;
+    private EditPersonalInfoFragment editPersonalInfoFragment;
+    private View mainActivity;
+    private Group group;
 
     @OnClick(R.id.layoutCategory)
     public void addCategory(){
@@ -35,10 +38,25 @@ public class PersonalFragment extends Fragment {
         dialogFragment.show(getFragmentManager(), "dialog");
     }
 
-    private CategoryViewModel categoryViewModel;
-    private CategoryDialogFragment dialogFragment;
-    private View mainActivity;
-    private Group group;
+    @OnClick(R.id.layoutPersonalInfo)
+    public void editPersonalInfo(){
+
+        if (editPersonalInfoFragment == null){
+            Bundle bundle = new Bundle();
+            bundle.putString("NAME","Mr. Problem");
+            editPersonalInfoFragment = new EditPersonalInfoFragment();
+            editPersonalInfoFragment.setArguments(bundle);
+            editPersonalInfoFragment.setDialogListener(name -> {
+
+            });
+        }
+
+        editPersonalInfoFragment.show(getFragmentManager(),"personal");
+
+
+    }
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
