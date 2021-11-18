@@ -97,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="40dp"
                         android:text="DELETE"
+                        android:textSize="10sp"
                         android:textColor="@color/color_red_light"
                         app:cornerRadius="25dp"
                         app:strokeColor="@color/color_red_light" />
@@ -109,6 +110,7 @@
                         android:layout_below="@+id/btnDelete"
                         android:layout_marginHorizontal="40dp"
                         android:text="CANCEL"
+                        android:textSize="10sp"
                         android:textColor="@color/color_white"
                         app:cornerRadius="25dp"
                         app:strokeColor="@color/color_white" />

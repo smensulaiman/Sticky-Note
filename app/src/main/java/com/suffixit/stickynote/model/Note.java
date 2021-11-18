@@ -97,18 +97,6 @@ public class Note implements Parcelable {
     }
 
     @Override
-    public String toString() {
-        return "Note{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", noteCategoryId=" + noteCategoryId +
-                ", noteBackgroundColor=" + noteBackgroundColor +
-                ", noteCreatedAt=" + noteCreatedAt +
-                '}';
-    }
-
-    @Override
     public int describeContents() {
         return 0;
     }
@@ -122,4 +110,18 @@ public class Note implements Parcelable {
         dest.writeInt(noteBackgroundColor);
         dest.writeLong(noteCreatedAt);
     }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", noteCategoryId=" + noteCategoryId +
+                ", noteBackgroundColor=" + noteBackgroundColor +
+                ", noteCreatedAt=" + noteCreatedAt +
+                '}';
+    }
+
+
 }
