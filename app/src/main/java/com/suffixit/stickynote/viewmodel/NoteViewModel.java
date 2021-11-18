@@ -1,6 +1,7 @@
 package com.suffixit.stickynote.viewmodel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -12,6 +13,7 @@ import com.suffixit.stickynote.repository.NoteRepository;
 import java.util.List;
 
 public class NoteViewModel extends AndroidViewModel {
+    private static final String TAG = "NoteViewModel";
 
     private NoteRepository noteRepository;
     private LiveData<List<Note>> allNotes;
@@ -27,6 +29,7 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
     public void updateNote(Note note) {
+        Log.d(TAG, "updateNote: "+note.getNoteCategoryId());
         noteRepository.updateNote(note);
     }
 

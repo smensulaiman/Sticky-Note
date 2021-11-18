@@ -2,16 +2,17 @@ package com.suffixit.stickynote.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
 import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.database.NoteDatabase;
-import com.suffixit.stickynote.repository.NoteDao;
 
 import java.util.List;
 
 public class NoteRepository {
+    private static final String TAG = "NoteRepository";
 
     private NoteDao noteDao;
     private LiveData<List<Note>> allNotes;
@@ -27,6 +28,7 @@ public class NoteRepository {
     }
 
     public void updateNote(Note note) {
+        Log.d(TAG, "updateNote: " + note.toString());
         new UpdateNoteAsync(noteDao).execute(note);
     }
 
@@ -38,7 +40,7 @@ public class NoteRepository {
         new DeleteAllNotesAsync(noteDao).execute();
     }
 
-    public LiveData<List<Note>> getAllNotes(){
+    public LiveData<List<Note>> getAllNotes() {
         return allNotes;
     }
 

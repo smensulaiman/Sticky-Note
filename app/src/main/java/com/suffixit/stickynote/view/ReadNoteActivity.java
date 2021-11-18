@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.CategoryModel;
@@ -31,6 +32,9 @@ public class ReadNoteActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     MaterialToolbar toolbar;
+
+    @BindView(R.id.cardView)
+    MaterialCardView cardView;
 
     @BindView(R.id.imgIcon)
     ImageView imgIcon;
@@ -88,9 +92,10 @@ public class ReadNoteActivity extends AppCompatActivity {
 
         note = getIntent().getParcelableExtra(NoteConstants.NOTE_DETAILS);
 
+        cardView.setCardBackgroundColor(getColor(note.getNoteBackgroundColor()));
         imgIcon.setImageResource(categoryViewModel.getCategoryById(note.getNoteCategoryId()).getIcon());
         imgIcon.setColorFilter(getColor(note.getNoteBackgroundColor()));
-        imgIcon.getDrawable().setColorFilter(note.getNoteBackgroundColor(), PorterDuff.Mode.SRC_ATOP);
+        imgIcon.getDrawable().setColorFilter(getColor(note.getNoteBackgroundColor()), PorterDuff.Mode.SRC_ATOP);
         txtTitle.setText(note.getTitle());
         txtDescription.setText(note.getDescription());
 
