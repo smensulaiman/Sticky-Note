@@ -1,10 +1,12 @@
 package com.suffixit.stickynote.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.Note;
+import com.suffixit.stickynote.utils.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -63,6 +66,15 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         });
 
         holder.container.setOnLongClickListener(v -> {
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, note.getDescription());
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            context.startActivity(shareIntent);
+
             if (holder.layoutDelete.getVisibility() != View.VISIBLE) {
                 holder.layoutDelete.setVisibility(View.VISIBLE);
 
@@ -96,6 +108,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                     dialog.show();
                 }
         );
+
+        holder.share.setOnClickListener(v -> {
+            Utils.shareText(context, note);
+        });
 
         YoYo.with(Techniques.BounceIn)
                 .duration(500)
@@ -135,6 +151,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
         @BindView(R.id.dateTime)
         MaterialTextView dateTime;
+
+        @BindView(R.id.share)
+        ImageView share;
 
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);

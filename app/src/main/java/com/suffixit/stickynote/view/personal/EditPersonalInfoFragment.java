@@ -13,7 +13,6 @@ import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
-import com.suffixit.stickynote.model.Note;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +21,6 @@ public class EditPersonalInfoFragment extends DialogFragment {
 
     @BindView(R.id.txtName)
     TextInputEditText txtName;
-
 
     private String name;
     private EditPersonalInfoListener listener;
@@ -61,7 +59,7 @@ public class EditPersonalInfoFragment extends DialogFragment {
     }
 
     private void setView() {
-        txtName.setText(name);
+        //txtName.setText(name);
     }
 
     @Override
@@ -76,6 +74,5 @@ public class EditPersonalInfoFragment extends DialogFragment {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(lp);
-
     }
 }

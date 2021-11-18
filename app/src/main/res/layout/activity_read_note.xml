@@ -40,7 +40,7 @@
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
             android:clickable="true"
-            app:cardCornerRadius="4dp">
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,8 +53,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/philosopher_bold"
+                    android:textColor="@color/color_black_light"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/lorem_ipsum_title"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -72,8 +74,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/philosopher_regular"
+                    android:textColor="@color/color_black_light"
                     android:justificationMode="inter_word"
                     android:paddingHorizontal="24dp"
+                    android:paddingVertical="8dp"
                     android:text="@string/lorem_ipsum_description"
                     android:textSize="18sp" />
 

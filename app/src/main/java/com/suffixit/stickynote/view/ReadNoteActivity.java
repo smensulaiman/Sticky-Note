@@ -20,6 +20,7 @@ import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.CategoryModel;
 import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.utils.NoteConstants;
+import com.suffixit.stickynote.utils.Utils;
 import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 import com.suffixit.stickynote.viewmodel.NoteViewModel;
 
@@ -72,7 +73,7 @@ public class ReadNoteActivity extends AppCompatActivity {
 
     @OnClick(R.id.imgShare)
     public void shareNote() {
-
+        Utils.shareText(this, note);
     }
 
     private CategoryViewModel categoryViewModel;
