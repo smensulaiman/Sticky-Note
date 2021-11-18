@@ -6,32 +6,50 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.adapter.CategoryAdapter;
+import com.suffixit.stickynote.model.CategoryModel;
 import com.suffixit.stickynote.model.Note;
+import com.suffixit.stickynote.viewmodel.CategoryViewModel;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class EditPersonalInfoFragment extends DialogFragment {
 
     @BindView(R.id.txtName)
     TextInputEditText txtName;
 
+    @BindView(R.id.autoCompleteDistrict)
+    AutoCompleteTextView txtDistrict;
+
+    @OnClick(R.id.autoCompleteDistrict)
+    public void showDistricts() {
+        txtDistrict.showDropDown();
+    }
 
     private String name;
     private EditPersonalInfoListener listener;
+    private CategoryAdapter categoryAdapter;
+    private CategoryViewModel categoryViewModel;
 
-    public interface EditPersonalInfoListener{
+
+    public interface EditPersonalInfoListener {
         void onFinishDialog(String name);
     }
 
-    public void setDialogListener(EditPersonalInfoListener listener){
+    public void setDialogListener(EditPersonalInfoListener listener) {
         this.listener = listener;
     }
 
@@ -45,7 +63,7 @@ public class EditPersonalInfoFragment extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = this.getArguments();
-        if (bundle != null){
+        if (bundle != null) {
             name = bundle.getString("NAME");
         }
     }
@@ -54,10 +72,14 @@ public class EditPersonalInfoFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.layout_edit_personal_info,container,false);
-        ButterKnife.bind(this,view);
-        setView();
+        View view = inflater.inflate(R.layout.layout_edit_personal_info, container, false);
+        ButterKnife.bind(this, view);
         return view;
+    }
+
+    private void setDistrictAdapter() {
+        categoryAdapter = new CategoryAdapter(getContext(), R.layout.dropdown_category, R.id.txtCategoryTitle, new ArrayList());
+        txtDistrict.setAdapter(categoryAdapter);
     }
 
     private void setView() {
@@ -67,6 +89,10 @@ public class EditPersonalInfoFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        categoryViewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
+        categoryViewModel.getAllCategories().observe(this, categoryModels -> categoryAdapter.setDataList(categoryModels));
+        setView();
+        setDistrictAdapter();
     }
 
     @Override
