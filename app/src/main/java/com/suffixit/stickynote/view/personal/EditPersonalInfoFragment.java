@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.NonNull;
@@ -17,10 +18,14 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.CategoryAdapter;
 import com.suffixit.stickynote.model.CategoryModel;
+import com.suffixit.stickynote.model.District;
 import com.suffixit.stickynote.model.Note;
+import com.suffixit.stickynote.utils.Utils;
 import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,10 +46,6 @@ public class EditPersonalInfoFragment extends DialogFragment {
 
     private String name;
     private EditPersonalInfoListener listener;
-    private CategoryAdapter categoryAdapter;
-    private CategoryViewModel categoryViewModel;
-
-
     public interface EditPersonalInfoListener {
         void onFinishDialog(String name);
     }
@@ -78,8 +79,14 @@ public class EditPersonalInfoFragment extends DialogFragment {
     }
 
     private void setDistrictAdapter() {
-        categoryAdapter = new CategoryAdapter(getContext(), R.layout.dropdown_category, R.id.txtCategoryTitle, new ArrayList());
-        txtDistrict.setAdapter(categoryAdapter);
+        try {
+            txtDistrict.setAdapter(new ArrayAdapter(getContext(),
+                    R.layout.support_simple_spinner_dropdown_item,
+                    Utils.getAllDistrict(getContext()).getDistricts().stream()
+                            .map(District::getName).collect(Collectors.toList())));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setView() {
@@ -89,8 +96,6 @@ public class EditPersonalInfoFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        categoryViewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
-        categoryViewModel.getAllCategories().observe(this, categoryModels -> categoryAdapter.setDataList(categoryModels));
         setView();
         setDistrictAdapter();
     }

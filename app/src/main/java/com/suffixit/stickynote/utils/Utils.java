@@ -2,6 +2,7 @@ package com.suffixit.stickynote.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.suffixit.stickynote.model.DistrictModel;
@@ -12,12 +13,16 @@ import java.io.InputStream;
 
 public class Utils {
 
+    private static final String TAG = "Utils";
+
     public static DistrictModel getAllDistrict(Context context) throws IOException {
         InputStream inputStream = context.getAssets().open("districts.json");
         byte[] stream = new byte[inputStream.available()];
+
         inputStream.read(stream);
         inputStream.close();
-        return new Gson().fromJson(String.valueOf(stream), DistrictModel.class);
+
+        return new Gson().fromJson(new String(stream, "UTF-8"), DistrictModel.class);
     }
 
     public static void shareText(Context context, Note note){
