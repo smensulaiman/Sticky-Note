@@ -17,12 +17,12 @@
         android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="2dp"
         android:background="@color/white"
         android:hint="Title"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:padding="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
