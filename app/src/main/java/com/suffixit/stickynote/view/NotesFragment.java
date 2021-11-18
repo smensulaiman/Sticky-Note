@@ -60,25 +60,16 @@ public class NotesFragment extends Fragment {
 
             @Override
             public void onClickItem(Note note) {
-
                 Intent intent = new Intent(getContext(), ReadNoteActivity.class);
                 intent.putExtra(NoteConstants.NOTE_DETAILS, note);
                 startActivity(intent);
-
-//                Bundle bundle = new Bundle();
-//                bundle.putParcelable("NOTE",note);
-//                noteDetailsFragment = new NoteDetailsFragment();
-//                noteDetailsFragment.setArguments(bundle);
-//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,noteDetailsFragment).addToBackStack(null).commit();
             }
         });
 
         recyclerView.setAdapter(noteAdapter);
 
         noteViewModel = ViewModelProviders.of(requireActivity()).get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
-            noteAdapter.setNotes(notes);
-        });
+        noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> noteAdapter.setNotes(notes));
 
     }
 }

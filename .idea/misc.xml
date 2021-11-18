@@ -15,6 +15,7 @@
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/ic_phone.xml" value="0.1972972972972973" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/ic_share.xml" value="0.1972972972972973" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/round_background.xml" value="0.199609375" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/round_deep_background.xml" value="0.1972972972972973" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/round_white_background.xml" value="0.1972972972972973" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/selector.xml" value="0.199609375" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/white_border_rounded_color.xml" value="0.1972972972972973" />
@@ -23,15 +24,16 @@
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_main.xml" value="0.1798611111111111" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_new_note.xml" value="0.18532818532818532" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_read_note.xml" value="0.1605351170568562" />
-        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_splash.xml" value="0.196484375" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/activity_splash.xml" value="0.175" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/dropdown_category.xml" value="0.18532818532818532" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_home.xml" value="0.1798611111111111" />
-        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_notes.xml" value="0.264" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_notes.xml" value="0.175" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/fragment_to_do.xml" value="0.18532818532818532" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/layout_icon.xml" value="0.25" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/layout_sample_dialog.xml" value="0.18194444444444444" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/note_item.xml" value="0.2" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/note_widget.xml" value="0.1875" />
+        <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/layout/personal_fragment.xml" value="0.175" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/menu/menu.xml" value="0.1875" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/xml/sticky_note_app_widget_info.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/green_ripple.xml" value="0.2713541666666667" />
