@@ -12,21 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StickyNote">
+
         <activity
-            android:name=".view.ReadNoteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.NewNoteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.MainActivity"
-            android:exported="true">
+            android:name=".view.SplashActivity"
+            android:exported="true"
+            android:theme="@style/StickyNote.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.ReadNoteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.NewNoteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true"/>
 
         <receiver android:name=".receiver.StickyNoteWidgetProvider">
             <intent-filter>
