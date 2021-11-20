@@ -117,7 +117,6 @@ public class EditPersonalInfoFragment extends DialogFragment {
                 districtList.stream()
                         .map(District::getName).collect(Collectors.toList()));
             txtDistrict.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
     }
 
     private void setView() {
