@@ -67,14 +67,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
         holder.container.setOnLongClickListener(v -> {
 
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, note.getDescription());
-            sendIntent.setType("text/plain");
-
-            Intent shareIntent = Intent.createChooser(sendIntent, null);
-            context.startActivity(shareIntent);
-
             if (holder.layoutDelete.getVisibility() != View.VISIBLE) {
                 holder.layoutDelete.setVisibility(View.VISIBLE);
 
