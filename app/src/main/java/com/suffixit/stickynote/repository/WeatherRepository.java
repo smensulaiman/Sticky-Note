@@ -2,11 +2,9 @@ package com.suffixit.stickynote.repository;
 
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.weather.WeatherResponseModel;
 import com.suffixit.stickynote.network.APIInterface;
 import com.suffixit.stickynote.network.RetrofitClient;
@@ -19,13 +17,11 @@ public class WeatherRepository {
 
     private static final String TAG = "WeatherRepository";
 
-    private Application application;
     private APIInterface apiInterface;
     private MutableLiveData<WeatherResponseModel> weatherResponseModelLiveData = new MutableLiveData();
 
     public WeatherRepository(Application app) {
         apiInterface = RetrofitClient.getRetrofitClient().create(APIInterface.class);
-        application = app;
     }
 
     public MutableLiveData<WeatherResponseModel> getWeatherResponseModel() {
@@ -50,7 +46,7 @@ public class WeatherRepository {
 
             @Override
             public void onFailure(Call<WeatherResponseModel> call, Throwable t) {
-                Toast.makeText(application, "error : " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(application, "error : " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
