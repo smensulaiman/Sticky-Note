@@ -41,8 +41,8 @@ public class EditPersonalInfoFragment extends DialogFragment {
     AutoCompleteTextView txtDistrict;
 
     @OnClick(R.id.btnUpdate)
-    public void update(){
-        listener.onFinishDialog(txtName.getText().toString(),selectedDistrict);
+    public void update() {
+        listener.onFinishDialog(txtName.getText().toString(), selectedDistrict);
     }
 
     @OnClick(R.id.autoCompleteDistrict)
@@ -54,9 +54,10 @@ public class EditPersonalInfoFragment extends DialogFragment {
     private EditPersonalInfoListener listener;
     private List<District> districtList;
     private String selectedDistrict;
+    private String storedDistrict;
 
     public interface EditPersonalInfoListener {
-        void onFinishDialog(String name,String district);
+        void onFinishDialog(String name, String district);
     }
 
     public void setDialogListener(EditPersonalInfoListener listener) {
@@ -112,11 +113,10 @@ public class EditPersonalInfoFragment extends DialogFragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ArrayAdapter adapter = new ArrayAdapter(getContext(),
+        txtDistrict.setAdapter(new ArrayAdapter(getContext(),
                 R.layout.support_simple_spinner_dropdown_item,
                 districtList.stream()
-                        .map(District::getName).collect(Collectors.toList()));
-            txtDistrict.setAdapter(adapter);
+                        .map(District::getName).collect(Collectors.toList())));
     }
 
     private void setView() {
@@ -124,13 +124,12 @@ public class EditPersonalInfoFragment extends DialogFragment {
     }
 
 
-
     private void getDistrict() {
-        String storedDistrict = LocalStorage.getInstance(getContext()).getDistrict();
+        storedDistrict = LocalStorage.getInstance(getContext()).getDistrict();
         if (storedDistrict != null) {
-           District district = new Gson().fromJson(storedDistrict,District.class);
-           txtDistrict.setText(district.getName());
-       }
+            District district = new Gson().fromJson(storedDistrict, District.class);
+            txtDistrict.setText(district.getName());
+        }
     }
 
     @Override
