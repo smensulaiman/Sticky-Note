@@ -87,9 +87,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         weatherViewModel.getWeatherData().observe(this, weatherResponseModel ->
                 txtTemperature.setText(Math.round(weatherResponseModel.getCurrent().getTemp()) + "\u2103"));
 
-        txtDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy").format(new Date()));
-        //imageView.setImageURI(Uri.parse("https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"));
-        txtName.setText(LocalStorage.getInstance(this).getName());
+
     }
 
     private void setupToolbar() {
@@ -100,6 +98,12 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
     protected void onStart() {
         super.onStart();
         changeFragmentToHome();
+    }
+
+    private void setView() {
+        txtDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy").format(new Date()));
+        //imageView.setImageURI(Uri.parse("https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"));
+        txtName.setText(LocalStorage.getInstance(this).getName());
     }
 
     public void changeFragment(Fragment fragment) {
@@ -116,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         switch (menuItem) {
             case ITEM_HOME: {
                 changeFragment(new HomeFragment());
+                setView();
                 imgHome.setColorFilter(getColor(R.color.color_green));
                 imgPersonal.setColorFilter(getColor(R.color.color_black));
                 groupHome.setVisibility(View.VISIBLE);

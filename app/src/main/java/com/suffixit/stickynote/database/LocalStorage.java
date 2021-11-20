@@ -9,6 +9,7 @@ public class LocalStorage {
     private static SharedPreferences preferences;
 
     final String NAME_KEY = "name";
+    final String DISTRICT_KEY = "district";
 
     public static synchronized LocalStorage getInstance(Context context){
 
@@ -29,4 +30,15 @@ public class LocalStorage {
         editor.putString(NAME_KEY, name);
         editor.commit();
     }
+
+    public void setDistrict(String district){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(DISTRICT_KEY,district);
+        editor.commit();
+    }
+
+    public String getDistrict(){
+        return preferences.getString(DISTRICT_KEY,null);
+    }
+
 }

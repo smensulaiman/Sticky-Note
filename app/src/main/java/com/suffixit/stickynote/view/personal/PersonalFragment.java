@@ -5,14 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.database.LocalStorage;
 import com.suffixit.stickynote.view.MainActivity;
@@ -23,6 +26,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class PersonalFragment extends Fragment {
+
+    @BindView(R.id.txtName)
+    TextView txtName;
 
     private CategoryViewModel categoryViewModel;
     private CategoryDialogFragment dialogFragment;
@@ -42,15 +48,24 @@ public class PersonalFragment extends Fragment {
     @OnClick(R.id.layoutPersonalInfo)
     public void editPersonalInfo() {
 
-        if (editPersonalInfoFragment == null) {
             Bundle bundle = new Bundle();
             bundle.putString("NAME", LocalStorage.getInstance(getContext()).getName());
             editPersonalInfoFragment = new EditPersonalInfoFragment();
             editPersonalInfoFragment.setArguments(bundle);
-            editPersonalInfoFragment.setDialogListener(name -> {
+            editPersonalInfoFragment.setDialogListener((name,district) -> {
                 LocalStorage.getInstance(getContext()).setName(name);
+                LocalStorage.getInstance(getContext()).setDistrict(district);
+                AlertDialog successDialog = new MaterialAlertDialogBuilder(getContext())
+                        .setTitle("Success")
+                        .setMessage("successfully Information Changed")
+                        .setPositiveButton("OK", (dialog, which) -> {
+                            txtName.setText(name);
+                            dialog.dismiss();
+                            editPersonalInfoFragment.dismiss();
+                        })
+                        .create();
+                successDialog.show();
             });
-        }
 
         editPersonalInfoFragment.show(getFragmentManager(), "personal");
     }
@@ -73,6 +88,7 @@ public class PersonalFragment extends Fragment {
     }
 
     private void setView() {
+        txtName.setText(LocalStorage.getInstance(getContext()).getName());
         mainActivity = getActivity().findViewById(R.id.groupHome);
         if (mainActivity instanceof Group) {
             group = (Group) mainActivity;
