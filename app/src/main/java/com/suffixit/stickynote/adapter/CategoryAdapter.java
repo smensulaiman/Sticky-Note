@@ -17,9 +17,18 @@ import com.suffixit.stickynote.model.CategoryModel;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CategoryAdapter extends ArrayAdapter {
 
     private static final String TAG = "CategoryAdapter";
+
+    @BindView(R.id.txtCategoryTitle)
+    TextView textView;
+
+    @BindView(R.id.imgCategory)
+    ImageView imgCategory;
 
     private int itemLayout;
     private Context mContext;
@@ -37,8 +46,8 @@ public class CategoryAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         final CategoryModel categoryModel = dataList.get(position);
         View view = LayoutInflater.from(mContext).inflate(itemLayout, parent, false);
-        TextView textView = view.findViewById(R.id.txtCategoryTitle);
-        ImageView imgCategory = view.findViewById(R.id.imgCategory);
+        ButterKnife.bind(this, view);
+        
         textView.setText(categoryModel.getCategoryTitle());
         imgCategory.setImageResource(categoryModel.getIcon());
         imgCategory.setColorFilter(R.color.color_black);

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.suffixit.stickynote.R;
+import com.suffixit.stickynote.database.LocalStorage;
 import com.suffixit.stickynote.view.MainActivity;
 import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 
@@ -30,8 +31,8 @@ public class PersonalFragment extends Fragment {
     private Group group;
 
     @OnClick(R.id.layoutCategory)
-    public void addCategory(){
-        if(dialogFragment == null){
+    public void addCategory() {
+        if (dialogFragment == null) {
             dialogFragment = new CategoryDialogFragment();
             dialogFragment.setDialogListener(categoryModel -> categoryViewModel.insetCategoryModel(categoryModel));
         }
@@ -39,23 +40,20 @@ public class PersonalFragment extends Fragment {
     }
 
     @OnClick(R.id.layoutPersonalInfo)
-    public void editPersonalInfo(){
+    public void editPersonalInfo() {
 
-        if (editPersonalInfoFragment == null){
+        if (editPersonalInfoFragment == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("NAME","Mr. Problem");
+            bundle.putString("NAME", LocalStorage.getInstance(getContext()).getName());
             editPersonalInfoFragment = new EditPersonalInfoFragment();
             editPersonalInfoFragment.setArguments(bundle);
             editPersonalInfoFragment.setDialogListener(name -> {
-
+                LocalStorage.getInstance(getContext()).setName(name);
             });
         }
 
-        editPersonalInfoFragment.show(getFragmentManager(),"personal");
-
-
+        editPersonalInfoFragment.show(getFragmentManager(), "personal");
     }
-
 
 
     @Override
@@ -76,7 +74,7 @@ public class PersonalFragment extends Fragment {
 
     private void setView() {
         mainActivity = getActivity().findViewById(R.id.groupHome);
-        if (mainActivity instanceof Group){
+        if (mainActivity instanceof Group) {
             group = (Group) mainActivity;
             group.setVisibility(View.GONE);
         }

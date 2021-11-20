@@ -12,19 +12,14 @@ import android.widget.AutoCompleteTextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.suffixit.stickynote.R;
-import com.suffixit.stickynote.adapter.CategoryAdapter;
-import com.suffixit.stickynote.model.CategoryModel;
 import com.suffixit.stickynote.model.District;
-import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.utils.Utils;
-import com.suffixit.stickynote.viewmodel.CategoryViewModel;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import butterknife.BindView;
@@ -38,6 +33,11 @@ public class EditPersonalInfoFragment extends DialogFragment {
 
     @BindView(R.id.autoCompleteDistrict)
     AutoCompleteTextView txtDistrict;
+
+    @OnClick(R.id.btnUpdate)
+    public void update(){
+        listener.onFinishDialog(txtName.getText().toString());
+    }
 
     @OnClick(R.id.autoCompleteDistrict)
     public void showDistricts() {
@@ -71,7 +71,8 @@ public class EditPersonalInfoFragment extends DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.layout_edit_personal_info, container, false);
         ButterKnife.bind(this, view);
@@ -107,6 +108,5 @@ public class EditPersonalInfoFragment extends DialogFragment {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(lp);
-
     }
 }

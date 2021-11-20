@@ -17,6 +17,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.adapter.StickyBottomBarViewItemChangeListener;
+import com.suffixit.stickynote.database.LocalStorage;
 import com.suffixit.stickynote.utils.MenuItem;
 import com.suffixit.stickynote.view.personal.PersonalFragment;
 import com.suffixit.stickynote.viewmodel.WeatherViewModel;
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
     @BindView(R.id.imageView)
     SimpleDraweeView imageView;
+
+    @BindView(R.id.txtName)
+    TextView txtName;
 
     @BindView(R.id.groupWeather)
     Group groupWeather;
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
 
         txtDateTime.setText(new SimpleDateFormat("EEE, dd MMM yyyy").format(new Date()));
         //imageView.setImageURI(Uri.parse("https://spng.pngfind.com/pngs/s/5-52097_avatar-png-pic-vector-avatar-icon-png-transparent.png"));
+        txtName.setText(LocalStorage.getInstance(this).getName());
     }
 
     private void setupToolbar() {
