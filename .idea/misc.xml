@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/drawable/black_light_doted_border.xml" value="0.19166666666666668" />
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/activity_new_note.xml" value="0.17552083333333332" />
+        <entry key="..\:/Android/Sticky-Note/app/src/main/res/layout/black_light_doted_border.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/appbar_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/border_white.xml" value="0.1972972972972973" />
         <entry key="..\:/Users/SuffixIT/AndroidStudioProjects/Sticky-Note/app/src/main/res/drawable/green_ripple.xml" value="0.1972972972972973" />

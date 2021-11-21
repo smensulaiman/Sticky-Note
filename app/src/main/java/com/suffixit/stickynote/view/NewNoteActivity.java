@@ -4,10 +4,12 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -48,6 +50,12 @@ public class NewNoteActivity extends AppCompatActivity {
 
     @BindView(R.id.txtNoteDescriptionInput)
     TextInputLayout txtNoteDescriptionInput;
+
+    @BindView(R.id.imgAttach)
+    ImageView imgAttach;
+
+    @BindView(R.id.layoutAttach)
+    ConstraintLayout layoutAttach;
 
     @BindView(R.id.autoCompleteCategory)
     MaterialAutoCompleteTextView autoCompleteCategory;
