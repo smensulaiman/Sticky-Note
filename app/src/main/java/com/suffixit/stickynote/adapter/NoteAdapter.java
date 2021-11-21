@@ -1,7 +1,6 @@
 package com.suffixit.stickynote.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +57,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.container.setBackgroundResource(note.getNoteBackgroundColor());
         holder.txtNoteTitle.setText(note.getTitle());
         holder.txtNoteDescription.setText(note.getDescription());
-        holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm").format(new Date(note.getNoteCreatedAt())));
+        holder.dateTime.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm")
+                .format(new Date(note.getNoteCreatedAt())));
 
         holder.container.setOnClickListener(v -> {
             Log.d("ADAPTER", note.toString());
@@ -66,14 +66,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         });
 
         holder.container.setOnLongClickListener(v -> {
-
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, note.getDescription());
-            sendIntent.setType("text/plain");
-
-            Intent shareIntent = Intent.createChooser(sendIntent, null);
-            context.startActivity(shareIntent);
 
             if (holder.layoutDelete.getVisibility() != View.VISIBLE) {
                 holder.layoutDelete.setVisibility(View.VISIBLE);
@@ -94,7 +86,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         holder.btnCancel.setOnClickListener(v -> holder.layoutDelete.setVisibility(View.GONE));
         holder.btnDelete.setOnClickListener(v ->
                 {
-                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context).setTitle("Alert!!!")
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context)
+                            .setTitle("Alert!!!")
                             .setMessage("Are you sure want to delete?")
                             .setPositiveButton("YES", (dialog, which) -> {
                                 holder.layoutDelete.setVisibility(View.GONE);
@@ -109,9 +102,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 }
         );
 
-        holder.share.setOnClickListener(v -> {
-            Utils.shareText(context, note);
-        });
+        holder.share.setOnClickListener(v -> Utils.shareText(context, note));
 
         YoYo.with(Techniques.BounceIn)
                 .duration(500)

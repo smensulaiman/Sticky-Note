@@ -1,6 +1,10 @@
 package com.suffixit.stickynote.view;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,15 +12,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.button.MaterialButton;
 import com.suffixit.stickynote.R;
 import com.suffixit.stickynote.model.Note;
 import com.suffixit.stickynote.viewmodel.NoteViewModel;
