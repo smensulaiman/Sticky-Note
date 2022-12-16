@@ -161,7 +161,7 @@
 
             <ImageView
                 android:id="@+id/imgHome"
-                android:layout_width="0dp"
+                android:layout_width="36dp"
                 android:layout_height="match_parent"
                 android:layout_marginVertical="10dp"
                 android:layout_marginRight="32dp"
@@ -173,7 +173,7 @@
 
             <ImageView
                 android:id="@+id/imgPersonal"
-                android:layout_width="0dp"
+                android:layout_width="36dp"
                 android:layout_height="match_parent"
                 android:layout_marginVertical="10dp"
                 android:layout_marginRight="32dp"
