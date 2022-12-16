@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_4sdp">
+
+    <com.ramotion.foldingcell.FoldingCell
+        android:id="@+id/folding_cell"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_4sdp">
+        android:layout_height="wrap_content">
 
-    <LinearLayout
+        <FrameLayout
+            android:id="@+id/cell_content_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/_200sdp"
+            android:background="@color/color_green_light"
+            android:visibility="gone">
 
-        <com.ramotion.foldingcell.FoldingCell
-                android:id="@+id/folding_cell"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                folding-cell:additionalFlipsCount="2"
-                folding-cell:animationDuration="1300"
-                folding-cell:backSideColor="@color/color_background"
-                folding-cell:cameraHeight="30">
+                android:layout_height="@dimen/_200sdp" />
 
-            <include layout="@layout/cell_content_layout"/>
+        </FrameLayout>
 
-            <include layout="@layout/cell_title_layout"/>
+        <FrameLayout
+            android:id="@+id/cell_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp">
 
-        </com.ramotion.foldingcell.FoldingCell>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:background="@color/color_green" />
 
-    </LinearLayout>
+        </FrameLayout>
+
+    </com.ramotion.foldingcell.FoldingCell>
 
 </com.google.android.material.card.MaterialCardView>

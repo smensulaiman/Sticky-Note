@@ -4,14 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import com.acjl.foodmenu.R;
 import com.ramotion.foldingcell.FoldingCell;
+
 import org.jetbrains.annotations.NotNull;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class LunchListAdapter extends RecyclerView.Adapter<LunchListAdapter.ViewHolder> {
 
@@ -36,7 +39,7 @@ public class LunchListAdapter extends RecyclerView.Adapter<LunchListAdapter.View
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 2;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
