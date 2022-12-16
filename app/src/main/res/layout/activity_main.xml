@@ -24,7 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:title="Sticky Notes"
+                app:title="Sultan Lunch"
                 app:titleTextAppearance="@style/TextAppearance.AppCompat.MediumToolbarTitle"
                 app:titleTextColor="@color/white" />
 
@@ -44,10 +44,10 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView"
-            android:layout_width="62dp"
-            android:layout_height="62dp"
+            android:layout_width="52dp"
+            android:layout_height="50dp"
             android:layout_margin="16dp"
-            app:actualImageResource="@drawable/placeholder"
+            app:actualImageResource="@drawable/autocraft"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDateTime"
             app:roundAsCircle="true"
@@ -62,7 +62,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/philosopher_bold"
-            android:text="Good Morning"
+            android:text="Hello"
             android:textColor="@color/color_black_light"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/txtName"
@@ -74,8 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/philosopher_bold"
-            android:text="Mr. X"
-            android:textColor="@color/color_green"
+            android:text="Autocraft Japan Ltd."
+            android:textColor="@color/color_black_light"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/txtWish"
             app:layout_constraintTop_toBottomOf="@+id/txtWish" />
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Dhaka, Bangladesh"
+            android:text="UENO OFFICE, JAPAN"
             android:textAllCaps="true"
             android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="@+id/imgWeather"
@@ -168,8 +168,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/green_ripple"
                 android:clickable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_widgets" />
+                android:padding="6dp"
+                android:src="@drawable/outline_food" />
 
             <ImageView
                 android:id="@+id/imgPersonal"
@@ -180,7 +180,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/green_ripple"
                 android:clickable="true"
-                android:padding="8dp"
+                android:padding="6dp"
                 android:src="@drawable/ic_person" />
 
         </LinearLayout>

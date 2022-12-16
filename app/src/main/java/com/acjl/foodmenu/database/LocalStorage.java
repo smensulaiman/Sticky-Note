@@ -22,7 +22,7 @@ public class LocalStorage {
     }
 
     public String getName() {
-        return preferences.getString(NAME_KEY, "Mr. X");
+        return preferences.getString(NAME_KEY, "Autocraft Japan Ltd.");
     }
 
     public void setName(String name) {

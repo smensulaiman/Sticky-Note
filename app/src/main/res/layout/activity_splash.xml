@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/faster_one"
-        android:text="AUTOCRAFT LUNCH"
+        android:text="SULTAN LUNCH"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"

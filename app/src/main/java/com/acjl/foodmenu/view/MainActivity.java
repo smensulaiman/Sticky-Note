@@ -3,6 +3,9 @@ package com.acjl.foodmenu.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -86,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements StickyBottomBarVi
         weatherViewModel.getWeatherData().observe(this, weatherResponseModel ->
                 txtTemperature.setText(Math.round(weatherResponseModel.getCurrent().getTemp()) + "\u2103"));
 
+
+//        Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+//        rotateAnimation.setFillAfter(false);
 
     }
 

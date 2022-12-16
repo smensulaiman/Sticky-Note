@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
 
         noteViewPagerModelList = new ArrayList();
         noteViewPagerModelList.add(new NoteViewPagerModel("Notes", new NotesFragment()));
-        noteViewPagerModelList.add(new NoteViewPagerModel("To Do", new ToDoFragment()));
+        noteViewPagerModelList.add(new NoteViewPagerModel("Lunch", new LunchListFragment()));
 
         noteViewPagerAdapter = new NoteViewPagerAdapter(getChildFragmentManager());
         noteViewPagerAdapter.setNoteViewPagerModelList(noteViewPagerModelList);

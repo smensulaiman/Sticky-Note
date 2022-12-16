@@ -30,8 +30,8 @@ public class WeatherRepository {
         
         Call<WeatherResponseModel> call = apiInterface.getWeatherResponse(
                 "921b4588785edc17fd8f536f0990d05b",
-                23.777176,
-                90.399452,
+                35.7087,
+                139.7742,
                 "metric",
                 "hourly,minutely,daily"
         );
